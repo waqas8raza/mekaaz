@@ -2,7 +2,7 @@ name: mekaaz
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -36,7 +36,8 @@ dependencies:
   fluttertoast: ^8.2.8
   freezed: ^2.5.2
   freezed_annotation: ^2.4.4
- 
+  smooth_page_indicator: ^1.2.0+3
+
   google_fonts: ^6.2.1
   json_annotation: ^4.9.0
   json_serializable: ^6.8.0
@@ -59,12 +60,11 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/
+    - assets/images/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -75,12 +75,15 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: RoxboroughCF-ExtraBold
+      fonts:
+        - asset: assets\fonts\RoxboroughCF-ExtraBold.otf
+          style: italic
+    - family: Baumans_regular
+      fonts:
+        - asset: assets\fonts\Baumans_regular.ttf # Regular style
+          style: italic
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

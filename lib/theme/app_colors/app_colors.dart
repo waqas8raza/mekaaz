@@ -10,4 +10,5 @@ class AppColors {
   static const greyColor = Color(0xFF92979D);
   static const lightGreyColor = Color(0xFFE1E4E8);
   static const redColor = Color(0xFFD90000);
+  static const skipColor = Color(0xFF92979D);
 }
