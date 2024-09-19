@@ -5,6 +5,10 @@ class OnboardingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: Column(children: [Text("This is onboarding")],),);
+    return const Scaffold(
+      body: Column(
+        children: [Center(child: Text("This is Shoaib"))],
+      ),
+    );
   }
 }
