@@ -23,7 +23,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         actions: [
           TextButton(
             onPressed: () {},
-            child: const CustomText(
+            child:  CustomText(
               text: 'skip',
               color: AppColors.skipColor,
               fontSize: 16,

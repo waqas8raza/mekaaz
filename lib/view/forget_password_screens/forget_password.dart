@@ -6,10 +6,10 @@ import '../../theme/app_colors/app_colors.dart';
 import '../../widgets/custom_text.dart';
 
 // ignore: must_be_immutable
-class ContactScreen extends StatelessWidget {
-  ContactScreen({super.key});
-  TextEditingController contatcController = TextEditingController();
-
+class ForgetPasswordScreen extends StatelessWidget {
+  ForgetPasswordScreen({super.key});
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,18 +42,22 @@ class ContactScreen extends StatelessWidget {
                     'assets/images/logo.png',
                     fit: BoxFit.cover,
                   ),
-                   CustomText(
-                    text: "Me'kaaz",
-                    fontFamily: 'RoxboroughCF-ExtraBold',
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  CustomText(
+                    text: "Forgot Password",
                     fontSize: 28.0,
-                    fontWeight: FontWeight.bold,
                     color: AppColors.blackColor,
                   ),
-                   CustomText(
-                    text: "Add Contact Details",
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.normal,
-                    color: AppColors.greyTextColor,
+                  FittedBox(
+                    child: CustomText(
+                      text:
+                          "We're here to help you get back into your account.",
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.normal,
+                      color: AppColors.greyTextColor,
+                    ),
                   ),
                 ],
               ),
@@ -61,39 +65,23 @@ class ContactScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Row(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: AppColors.blackforgettext)),
-                  child: const Material(
-                    shape: CircleBorder(),
-                    elevation: 2,
-                    child: CircleAvatar(
-                      radius: 26,
-                      backgroundColor: AppColors.whiteColor,
-                      child: Text('+92'),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  child: CustomTextField(
-                      keyboardType: TextInputType.number,
-                      hintText: '',
-                      controller: contatcController),
-                ),
-              ],
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text('Email'),
+            ),
+            CustomTextField(hintText: '', controller: emailController),
+            const SizedBox(
+              height: 25,
             ),
             const Spacer(),
             CustomButton(
               width: 320,
-              color: AppColors.blackColor,
               onPressed: () {},
-              widget: const Text('Verify'),
+              widget: CustomText(
+                text: 'Verify Otp',
+                color: AppColors.blackColor,
+                fontSize: 18,
+              ),
             )
           ],
         ),

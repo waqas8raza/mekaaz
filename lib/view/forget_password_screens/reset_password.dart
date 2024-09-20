@@ -6,10 +6,10 @@ import '../../theme/app_colors/app_colors.dart';
 import '../../widgets/custom_text.dart';
 
 // ignore: must_be_immutable
-class EmailScreenOne extends StatelessWidget {
-  EmailScreenOne({super.key});
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+class ResetPasswordScreen extends StatelessWidget {
+  ResetPasswordScreen({super.key});
+  TextEditingController newpassController = TextEditingController();
+  TextEditingController confirmpassController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,15 +43,14 @@ class EmailScreenOne extends StatelessWidget {
                       'assets/images/logo.png',
                       fit: BoxFit.cover,
                     ),
-                     CustomText(
-                      text: "Me'kaaz",
-                      fontFamily: 'RoxboroughCF-ExtraBold',
+                    CustomText(
+                      text: "New Password",
                       fontSize: 28.0,
                       fontWeight: FontWeight.bold,
                       color: AppColors.blackColor,
                     ),
-                     CustomText(
-                      text: "Add email Credentials",
+                    CustomText(
+                      text: "Please Enter the new Passwords",
                       fontSize: 16.0,
                       fontWeight: FontWeight.normal,
                       color: AppColors.greyTextColor,
@@ -64,36 +63,25 @@ class EmailScreenOne extends StatelessWidget {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: Text('Email'),
+                child: Text('New Password'),
               ),
-              CustomTextField(hintText: '', controller: emailController),
+              CustomTextField(
+                  obscureText: true,
+                  hintText: '',
+                  controller: newpassController),
               const SizedBox(
                 height: 25,
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: Text('Password'),
+                child: Text('Confirm Password'),
               ),
               CustomTextField(
                   obscureText: true,
                   hintText: '',
-                  controller: passwordController),
+                  controller: confirmpassController),
               const SizedBox(
-                height: 15,
-              ),
-              GestureDetector(
-                onTap: () {},
-                child:  Align(
-                  alignment: Alignment.centerRight,
-                  child: CustomText(
-                    text: 'Forget Password?',
-                    color: AppColors.blackforgettext,
-                    fontSize: 12,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 200,
+                height: 220,
               ),
               CustomButton(
                 width: 320,

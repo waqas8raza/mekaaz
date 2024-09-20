@@ -22,7 +22,7 @@ class SplashTwoScreen extends StatelessWidget {
                   'assets/images/logo.png',
                   fit: BoxFit.cover,
                 ),
-                const CustomText(
+                CustomText(
                   text: "Me'kaaz",
                   fontFamily: 'RoxboroughCF-ExtraBold',
                   fontSize: 28.0,
@@ -39,7 +39,7 @@ class SplashTwoScreen extends StatelessWidget {
             width: 320,
             onPressed: () {},
             color: AppColors.blackColor,
-            widget: const Row(
+            widget: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CustomText(
@@ -64,7 +64,7 @@ class SplashTwoScreen extends StatelessWidget {
                 const SizedBox(
                   width: 20,
                 ),
-                const CustomText(
+                CustomText(
                   text: 'login via Facebook',
                   color: AppColors.blackColor,
                   fontSize: 18,
@@ -88,7 +88,7 @@ class SplashTwoScreen extends StatelessWidget {
                 const SizedBox(
                   width: 20,
                 ),
-                const CustomText(
+                CustomText(
                   text: 'login via Google',
                   color: AppColors.blackColor,
                   fontSize: 18,
@@ -113,7 +113,7 @@ class SplashTwoScreen extends StatelessWidget {
                 const SizedBox(
                   width: 20,
                 ),
-                const CustomText(
+                CustomText(
                   text: 'login via Email',
                   color: AppColors.blackColor,
                   fontSize: 18,

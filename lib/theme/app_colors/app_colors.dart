@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class AppColors {
   static const primaryColor = Color(0xFF86705D);
   static const primaryLightColor = Color(0xFFFFFCF9);
@@ -12,4 +13,5 @@ class AppColors {
   static const redColor = Color(0xFFD90000);
   static const skipColor = Color(0xFF92979D);
   static const blackforgettext = Color(0xFF404040);
+  static const invitationPasswordresetColor = Color(0xFF86705d);
 }

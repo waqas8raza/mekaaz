@@ -18,14 +18,14 @@ class SplashScreenOne extends StatelessWidget {
               'assets/images/logo.png',
               fit: BoxFit.cover,
             ),
-            const CustomText(
+            CustomText(
               text: "Me'kaaz",
               fontFamily: 'RoxboroughCF-ExtraBold',
               fontSize: 28.0,
               fontWeight: FontWeight.bold,
               color: AppColors.blackColor,
             ),
-            const CustomText(
+            CustomText(
               text: "Patient care application",
               fontFamily: "Baumans_regular",
               fontSize: 24.0,
