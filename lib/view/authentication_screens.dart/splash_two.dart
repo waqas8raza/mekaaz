@@ -16,6 +16,7 @@ class SplashTwoScreen extends StatelessWidget {
             heightFactor: 1.5,
             alignment: Alignment.bottomCenter,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Image.asset(
                   'assets/images/logo.png',
@@ -31,6 +32,9 @@ class SplashTwoScreen extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(
+            height: 150,
+          ),
           CustomButton(
             width: 320,
             onPressed: () {},
@@ -41,67 +45,84 @@ class SplashTwoScreen extends StatelessWidget {
                 CustomText(
                   text: 'Started with phone number',
                   fontSize: 16,
+                  fontWeight: FontWeight.bold,
                 )
               ],
             ),
           ),
+          const SizedBox(
+            height: 50,
+          ),
           CustomButton(
-              width: 320,
-              widget: Row(
-                children: [
-                  Image.asset(
-                    "assets/images/facebook_icon.png",
-                    fit: BoxFit.cover,
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  const CustomText(
-                    text: 'login via Facebook',
-                    color: AppColors.blackColor,
-                    fontSize: 18,
-                  )
-                ],
-              ),
-              onPressed: () {}),
+            width: 320,
+            widget: Row(
+              children: [
+                Image.asset(
+                  "assets/images/facebook_icon.png",
+                  fit: BoxFit.cover,
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                const CustomText(
+                  text: 'login via Facebook',
+                  color: AppColors.blackColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                )
+              ],
+            ),
+            onPressed: () {},
+          ),
+          const SizedBox(
+            height: 20,
+          ),
           CustomButton(
-              width: 320,
-              widget: Row(
-                children: [
-                  Image.asset(
-                    "/assets/images/google_icon.png",
-                    fit: BoxFit.cover,
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  const CustomText(
-                    text: 'login via Google',
-                    color: AppColors.blackColor,
-                    fontSize: 18,
-                  )
-                ],
-              ),
-              onPressed: () {}),
+            width: 320,
+            widget: Row(
+              children: [
+                Image.asset(
+                  "assets/images/google_icon.png",
+                  fit: BoxFit.cover,
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                const CustomText(
+                  text: 'login via Google',
+                  color: AppColors.blackColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                )
+              ],
+            ),
+            onPressed: () {},
+          ),
+          const SizedBox(
+            height: 20,
+            child: Text('or'),
+          ),
           CustomButton(
-              width: 320,
-              widget: Row(
-                children: [
-                  Image.asset(
-                    "assets/images/email.png",
-                    fit: BoxFit.cover,
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  const CustomText(
-                    text: 'login via Email',
-                    color: AppColors.blackColor,
-                    fontSize: 18,
-                  )
-                ],
-              ),
-              onPressed: () {})
+            width: 320,
+            widget: Row(
+              children: [
+                Image.asset(
+                  "assets/images/email.png",
+                  fit: BoxFit.cover,
+                ),
+                const SizedBox(
+                  width: 20,
+                ),
+                const CustomText(
+                  text: 'login via Email',
+                  color: AppColors.blackColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                )
+              ],
+            ),
+            onPressed: () {},
+          )
         ],
       ),
     );
