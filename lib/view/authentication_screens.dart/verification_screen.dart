@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:mekaaz/app_router/app_router.dart';
 import 'package:mekaaz/widgets/custom_button.dart';
 import 'package:mekaaz/widgets/custom_text.dart';
 
@@ -24,14 +25,16 @@ class VerificationCodeScreen extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   icon: const Icon(
                     Icons.arrow_back_ios_new_outlined,
                     color: Colors.black,
                     size: 20,
                   ),
                 ),
-                 CustomText(
+                CustomText(
                   text: 'Verification Code',
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -41,7 +44,7 @@ class VerificationCodeScreen extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-             CustomText(
+            CustomText(
               text:
                   'We’ll send you the verification code on your phone number.',
               fontSize: 16,
@@ -75,7 +78,7 @@ class VerificationCodeScreen extends StatelessWidget {
               }, // end onSubmit
             ),
             const Spacer(),
-             CustomText(
+            CustomText(
               text: 'The code will be resend in 30 seconds.',
               fontSize: 16,
               color: AppColors.skipColor,
@@ -86,7 +89,7 @@ class VerificationCodeScreen extends StatelessWidget {
             CustomButton(
                 width: 320,
                 onPressed: () {},
-                widget:  CustomText(
+                widget: CustomText(
                   text: 'Send Again',
                   fontSize: 16,
                   color: AppColors.blackColor,
@@ -97,7 +100,9 @@ class VerificationCodeScreen extends StatelessWidget {
             CustomButton(
               width: 320,
               color: AppColors.blackColor,
-              onPressed: () {},
+              onPressed: () {
+                AppRouter.navigateTo(context, 'ResetPasswordScreen');
+              },
               widget: const Text('Done'),
             )
           ],

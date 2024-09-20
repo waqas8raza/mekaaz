@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mekaaz/app_router/app_router.dart';
 import 'package:mekaaz/widgets/custom_button.dart';
 
 import '../../theme/app_colors/app_colors.dart';
@@ -37,7 +38,9 @@ class SplashTwoScreen extends StatelessWidget {
           ),
           CustomButton(
             width: 320,
-            onPressed: () {},
+            onPressed: () {
+              AppRouter.navigateTo(context, "withphonenumber");
+            },
             color: AppColors.blackColor,
             widget: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -121,7 +124,9 @@ class SplashTwoScreen extends StatelessWidget {
                 )
               ],
             ),
-            onPressed: () {},
+            onPressed: () {
+              AppRouter.navigateTo(context, 'loginwithemail');
+            },
           )
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mekaaz/app_router/app_router.dart';
 import 'package:mekaaz/widgets/custom_button.dart';
 import 'package:mekaaz/widgets/custom_textfield.dart';
 
@@ -25,7 +26,9 @@ class EmailScreenOne extends StatelessWidget {
               Row(
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
                     icon: const Icon(
                       Icons.arrow_back_ios_new_outlined,
                       color: Colors.black,
@@ -43,14 +46,14 @@ class EmailScreenOne extends StatelessWidget {
                       'assets/images/logo.png',
                       fit: BoxFit.cover,
                     ),
-                     CustomText(
+                    CustomText(
                       text: "Me'kaaz",
                       fontFamily: 'RoxboroughCF-ExtraBold',
                       fontSize: 28.0,
                       fontWeight: FontWeight.bold,
                       color: AppColors.blackColor,
                     ),
-                     CustomText(
+                    CustomText(
                       text: "Add email Credentials",
                       fontSize: 16.0,
                       fontWeight: FontWeight.normal,
@@ -82,8 +85,10 @@ class EmailScreenOne extends StatelessWidget {
                 height: 15,
               ),
               GestureDetector(
-                onTap: () {},
-                child:  Align(
+                onTap: () {
+                  AppRouter.navigateTo(context, 'ForgetPasswordScreen');
+                },
+                child: Align(
                   alignment: Alignment.centerRight,
                   child: CustomText(
                     text: 'Forget Password?',

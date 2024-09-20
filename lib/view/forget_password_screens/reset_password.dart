@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mekaaz/app_router/app_router.dart';
 import 'package:mekaaz/widgets/custom_button.dart';
 import 'package:mekaaz/widgets/custom_textfield.dart';
 
@@ -86,8 +87,10 @@ class ResetPasswordScreen extends StatelessWidget {
               CustomButton(
                 width: 320,
                 color: AppColors.blackColor,
-                onPressed: () {},
-                widget: const Text('Next'),
+                onPressed: () {
+                  AppRouter.replaceWith(context, 'InvitationPasswordresetScreen');
+                },
+                widget: const Text('Done'),
               )
             ],
           ),

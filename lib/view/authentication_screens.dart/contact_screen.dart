@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mekaaz/app_router/app_router.dart';
 import 'package:mekaaz/widgets/custom_button.dart';
 import 'package:mekaaz/widgets/custom_textfield.dart';
 
@@ -24,7 +25,9 @@ class ContactScreen extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   icon: const Icon(
                     Icons.arrow_back_ios_new_outlined,
                     color: Colors.black,
@@ -42,14 +45,14 @@ class ContactScreen extends StatelessWidget {
                     'assets/images/logo.png',
                     fit: BoxFit.cover,
                   ),
-                   CustomText(
+                  CustomText(
                     text: "Me'kaaz",
                     fontFamily: 'RoxboroughCF-ExtraBold',
                     fontSize: 28.0,
                     fontWeight: FontWeight.bold,
                     color: AppColors.blackColor,
                   ),
-                   CustomText(
+                  CustomText(
                     text: "Add Contact Details",
                     fontSize: 16.0,
                     fontWeight: FontWeight.normal,
@@ -92,7 +95,9 @@ class ContactScreen extends StatelessWidget {
             CustomButton(
               width: 320,
               color: AppColors.blackColor,
-              onPressed: () {},
+              onPressed: () {
+                AppRouter.navigateTo(context, 'verificationcode');
+              },
               widget: const Text('Verify'),
             )
           ],

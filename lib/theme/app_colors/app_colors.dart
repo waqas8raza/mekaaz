@@ -14,4 +14,6 @@ class AppColors {
   static const skipColor = Color(0xFF92979D);
   static const blackforgettext = Color(0xFF404040);
   static const invitationPasswordresetColor = Color(0xFF86705d);
+  //bottom bar color
+  static const bottombarColor1=Color(0xFFD3CBC4);
 }
