@@ -30,7 +30,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
           ),
         ],
-        backgroundColor:AppColors.whiteColor,
+        backgroundColor: AppColors.whiteColor,
         elevation: 0,
       ),
       body: Column(
