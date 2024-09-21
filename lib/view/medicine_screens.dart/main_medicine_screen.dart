@@ -1,4 +1,4 @@
-import 'package:date_picker_timeline/date_picker_timeline.dart';
+import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mekaaz/theme/app_colors/app_colors.dart';
@@ -28,26 +28,29 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
           padding: const EdgeInsets.all(10),
           child: Column(
             children: [
-              Container(
-                height: 90,
-                decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(50)),
-                child: DatePicker(
-                  DateTime.now(),
-                  initialSelectedDate: DateTime.now(),
-                  selectionColor: AppColors.primaryColor,
-                  selectedTextColor: Colors.white,
-                  onDateChange: (date) {
-                    setState(() {});
-                  },
-                ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  EasyDateTimeLine(
+                    initialDate: DateTime.now(),
+                    activeColor: const Color(0xff37306B),
+                    dayProps: const EasyDayProps(
+                   
+                      // ignore: deprecated_member_use
+                      activeBorderRadius: 32.0,
+                     
+                      // ignore: deprecated_member_use
+                      inactiveBorderRadius: 32.0,
+                    ),
+                  ),
+                ],
               ),
               const Divider(),
               const SizedBox(
                 height: 200,
               ),
               RichText(
-                textAlign: TextAlign.center, // Center the text
+                textAlign: TextAlign.center,
                 text: TextSpan(
                   style:
                       const TextStyle(fontSize: 18, color: AppColors.skipColor),
