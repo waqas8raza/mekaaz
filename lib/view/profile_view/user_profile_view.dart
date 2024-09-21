@@ -239,12 +239,9 @@ void showDeleteAccountDialog(BuildContext context) {
             ),
           ),
         ),
-        content: const Text(
-          'Do you really want to delete your account?',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 14,
-          ),
+        content: CustomText(
+          text: 'Do you really want to delete your account?',
+          fontSize: 14,
         ),
         actionsAlignment: MainAxisAlignment.center,
         actions: [
@@ -277,7 +274,7 @@ void showDeleteAccountDialog(BuildContext context) {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: CustomText(
-                text: 'Delete',
+                text: 'Cancel',
                 fontSize: 16,
                 color: AppColors.blackColor,
               ),

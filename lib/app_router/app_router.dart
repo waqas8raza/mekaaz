@@ -6,7 +6,6 @@ import 'package:mekaaz/view/authentication_view.dart/verification_screen.dart';
 import 'package:mekaaz/view/forget_password_screens/forget_password.dart';
 import 'package:mekaaz/view/forget_password_screens/invitation_password.dart';
 import 'package:mekaaz/view/forget_password_screens/reset_password.dart';
-import 'package:mekaaz/view/location/location_view.dart';
 import 'package:mekaaz/view/onboarding/onboarding_view.dart';
 import 'package:mekaaz/view/profile_completion_view/add_caretaker_view.dart';
 import 'package:mekaaz/view/profile_completion_view/add_disease_two.dart';
@@ -29,6 +28,8 @@ class AppRouter {
     '/': (context) => const SplashScreenOne(),
     '/onboardingScreen': (context) => const OnboardingScreen(),
     '/splashTwoScreen': (context) => const SplashTwoScreen(),
+    '/verificationCodeScreen': (context) =>  VerificationCodeScreen(),
+    
     '/emailScreenOne': (context) => EmailScreenOne(),
     '/profileTypeView': (context) => const ProfileTypeView(),
     '/contactScreen': (context) => ContactScreen(),
@@ -47,7 +48,6 @@ class AppRouter {
     '/cardDetailView': (context) => const CardDetailView(),
     '/cardDetailSecondView': (context) => CardDetailSecondView(),
     '/verificationDone': (context) => const VerificationDone(),
-    '/locationView': (context) => const LocationView(),
     '/termsAndConditionView': (context) => const TermsAndConditionView(),
   };
 
