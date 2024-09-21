@@ -25,11 +25,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: AppRouter.routes,
-
-   
-
       // home: const LocationView(),
-
     );
   }
 }
