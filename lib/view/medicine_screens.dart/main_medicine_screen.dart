@@ -68,9 +68,9 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
                               MedicineCard(
                                 dosage: 'af',
                                 icon: Icons.add_ic_call_outlined,
-                                medicineName: '',
-                                time: '',
-                                dosageUnit: '',
+                                medicineName: 'asda',
+                                time: 'asd',
+                                dosageUnit: 'dad',
                               ),
                               Center(child: Text('Content for Tab 2')),
                               Center(child: Text('Content for Tab 3')),
