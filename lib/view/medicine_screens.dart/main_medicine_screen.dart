@@ -19,7 +19,7 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        onPressed: () {
+        onProfilePressed: () {
           AppRouter.navigateTo(context, '/userProfileView');
         },
         title: 'App Title',
@@ -75,10 +75,7 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
                         color: AppColors.primaryColor,
                         fontWeight: FontWeight.bold,
                       ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          // Action when the word is clicked
-                        },
+                      recognizer: TapGestureRecognizer()..onTap = () {},
                     ),
                   ],
                 ),
