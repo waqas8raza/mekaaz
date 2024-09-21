@@ -91,6 +91,7 @@ class CardDetailView extends ConsumerWidget {
           const SizedBox(height: 10),
           Center(
             child: CustomText(
+              textAlign: TextAlign.center,
               text:
                   'Note: you can add unlimited caretakers after subscription.',
               fontSize: 16,

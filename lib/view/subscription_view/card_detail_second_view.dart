@@ -118,35 +118,39 @@ class CardDetailSecondView extends ConsumerWidget {
           ),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Center(
-            child: CustomText(
-              text: 'Total Payment',
-              fontSize: 16,
-              color: AppColors.whiteColor,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Center(
+              child: CustomText(
+                text: 'Total Payment',
+                fontSize: 16,
+                color: AppColors.whiteColor,
+              ),
             ),
-          ),
-          Center(
-            child: CustomText(
-              text: '40 Riyals',
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: AppColors.whiteColor,
+            Center(
+              child: CustomText(
+                text: '40 Riyals',
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: AppColors.whiteColor,
+              ),
             ),
-          ),
-          const SizedBox(height: 10),
-          Center(
-            child: CustomText(
-              text:
-                  'Note: you can add unlimited caretakers after subscription.',
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
-              color: AppColors.whiteColor,
+            const SizedBox(height: 10),
+            Center(
+              child: CustomText(
+                textAlign: TextAlign.center,
+                text:
+                    'Note: you can add unlimited caretakers after subscription.',
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                color: AppColors.whiteColor,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

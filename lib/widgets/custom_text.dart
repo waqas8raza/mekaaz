@@ -4,6 +4,7 @@ class CustomText extends StatelessWidget {
   final String text;
   final String? fontFamily;
   final double fontSize;
+  final TextAlign? textAlign;
   final TextDecoration? decoration;
   final FontWeight fontWeight;
   final Color? color;
@@ -12,6 +13,7 @@ class CustomText extends StatelessWidget {
   CustomText({
     super.key,
     this.maxLines,
+    this.textAlign,
     required this.text,
     this.decoration,
     this.fontFamily,
@@ -23,7 +25,7 @@ class CustomText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      textAlign: TextAlign.center,
+      textAlign: textAlign,
       maxLines: maxLines,
       text,
       style: TextStyle(

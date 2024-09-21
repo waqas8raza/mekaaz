@@ -51,7 +51,9 @@ class UserProfileView extends ConsumerWidget {
               ),
               const SizedBox(height: 30),
               userProfileCard(
-                onPressed: () {},
+                onPressed: () {
+                  AppRouter.navigateTo(context, '/accountView');
+                },
                 title: 'Account information',
                 image: 'assets/images/account.png',
                 trailing: const Icon(
@@ -73,7 +75,9 @@ class UserProfileView extends ConsumerWidget {
               ),
               const SizedBox(height: 10),
               userProfileCard(
-                onPressed: () {},
+                onPressed: () {
+                  AppRouter.navigateTo(context, '/addCaretakerView');
+                },
                 title: 'Add Caretaker/Supervisor',
                 image: 'assets/images/user-add.png',
                 trailing: const Icon(
@@ -116,7 +120,9 @@ class UserProfileView extends ConsumerWidget {
               ),
               const SizedBox(height: 10),
               userProfileCard(
-                onPressed: () {},
+                onPressed: () {
+                  AppRouter.navigateTo(context, '/termsAndConditionView');
+                },
                 title: 'Terms and conditions',
                 image: 'assets/images/terms.png',
                 trailing: const Icon(
@@ -136,7 +142,9 @@ class UserProfileView extends ConsumerWidget {
               ),
               const SizedBox(height: 10),
               userProfileCard(
-                onPressed: () {},
+                onPressed: () {
+                  showDeleteAccountDialog(context);
+                },
                 title: 'Delete Account',
                 image: 'assets/images/logout.png',
                 trailing: const Icon(
@@ -176,6 +184,7 @@ class UserProfileView extends ConsumerWidget {
   }
 }
 
+// # User Profile custom widget
 class userProfileCard extends StatelessWidget {
   final Widget trailing;
   final VoidCallback onPressed;
@@ -208,4 +217,74 @@ class userProfileCard extends StatelessWidget {
       ),
     );
   }
+}
+
+// # show dialg widget
+
+void showDeleteAccountDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        backgroundColor: Colors.white,
+        title: const Center(
+          child: Text(
+            'Delete Account',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
+          ),
+        ),
+        content: const Text(
+          'Do you really want to delete your account?',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 14,
+          ),
+        ),
+        actionsAlignment: MainAxisAlignment.center,
+        actions: [
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.white,
+              backgroundColor: AppColors.primaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: CustomText(text: 'Delete', fontSize: 16),
+            ),
+          ),
+          TextButton(
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.brown[100],
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: CustomText(
+                text: 'Delete',
+                fontSize: 16,
+                color: AppColors.blackColor,
+              ),
+            ),
+          ),
+        ],
+      );
+    },
+  );
 }

@@ -6,14 +6,15 @@ import 'package:mekaaz/view/authentication_view.dart/verification_screen.dart';
 import 'package:mekaaz/view/forget_password_screens/forget_password.dart';
 import 'package:mekaaz/view/forget_password_screens/invitation_password.dart';
 import 'package:mekaaz/view/forget_password_screens/reset_password.dart';
+import 'package:mekaaz/view/location/location_view.dart';
 import 'package:mekaaz/view/onboarding/onboarding_view.dart';
 import 'package:mekaaz/view/profile_completion_view/add_caretaker_view.dart';
 import 'package:mekaaz/view/profile_completion_view/add_disease_two.dart';
 import 'package:mekaaz/view/profile_completion_view/invitation_sent_view.dart';
 import 'package:mekaaz/view/profile_type/profile_type_view.dart';
 import 'package:mekaaz/view/profile_view/account_view.dart';
-import 'package:mekaaz/view/profile_view/user_profile_view.dart';
 import 'package:mekaaz/view/profile_view/terms_and_condition_view.dart';
+import 'package:mekaaz/view/profile_view/user_profile_view.dart';
 import 'package:mekaaz/view/splash_screen_one.dart';
 import 'package:mekaaz/view/subscription_view/card_detail_second_view.dart';
 import 'package:mekaaz/view/subscription_view/card_detail_view.dart';
@@ -46,6 +47,7 @@ class AppRouter {
     '/cardDetailView': (context) => const CardDetailView(),
     '/cardDetailSecondView': (context) => CardDetailSecondView(),
     '/verificationDone': (context) => const VerificationDone(),
+    '/locationView': (context) => const LocationView(),
     '/termsAndConditionView': (context) => const TermsAndConditionView(),
   };
 

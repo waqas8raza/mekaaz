@@ -160,7 +160,7 @@ class AccountView extends ConsumerWidget {
               const SizedBox(
                 height: 20,
               ),
-               CustomText(
+              CustomText(
                   text: 'Gender', fontSize: 22, fontWeight: FontWeight.w700),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -196,7 +196,7 @@ class AccountView extends ConsumerWidget {
                   containerColor: AppColors.primaryColor,
                   titleColor: AppColors.whiteColor,
                   onPressed: () {
-                    AppRouter.navigateTo(context, '/subscriptionView');
+                    AppRouter.navigateTo(context, '/userProfileView');
                   },
                   title: 'Save Changes')
             ],
