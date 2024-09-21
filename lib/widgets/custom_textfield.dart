@@ -1,26 +1,32 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
 import 'package:mekaaz/theme/app_colors/app_colors.dart';
 
 // ignore: must_be_immutable
 class CustomTextField extends StatelessWidget {
-  final String hintText;
+  final String? hintText;
+  String? Function(String?)? validator;
+
   final TextEditingController controller;
   final bool obscureText;
+  final Widget? suffixButton;
+
   TextInputType? keyboardType;
 
   CustomTextField({
     super.key,
-    required this.hintText,
+    this.validator,
+    this.hintText,
     required this.controller,
     this.obscureText = false,
+    this.suffixButton,
     this.keyboardType,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: validator,
       keyboardType: keyboardType,
       cursorColor: AppColors.blackColor,
       controller: controller,
@@ -31,8 +37,9 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.all(10),
         filled: true,
-        fillColor: Colors.white,
+        fillColor: Colors.transparent,
         hintText: hintText,
+        suffixIcon: suffixButton,
         hintStyle: const TextStyle(
           color: Colors.grey,
         ),
