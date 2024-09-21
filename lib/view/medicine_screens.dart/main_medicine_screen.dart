@@ -43,12 +43,12 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
               const SizedBox(height: 20),
               if (isCaretakerAdded)
                 // If caretaker is added, show the tabs
-                const Expanded(
+                Expanded(
                   child: DefaultTabController(
                     length: 3,
                     child: Column(
                       children: [
-                        TabBar(
+                        const TabBar(
                           labelStyle: TextStyle(
                             fontSize:
                                 14, // Increase the font size for selected tab
@@ -65,15 +65,17 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
                         Expanded(
                           child: TabBarView(
                             children: [
-                              MedicineCard(
-                                dosage: 'af',
-                                icon: Icons.add_ic_call_outlined,
-                                medicineName: 'asda',
-                                time: 'asd',
-                                dosageUnit: 'dad',
+                              Container(
+                                decoration: const BoxDecoration(
+                                    color: AppColors.whiteColor),
+                                child:  Row(
+                                  children: [
+                                    Image.asset('name'),
+                                  ],
+                                ),
                               ),
-                              Center(child: Text('Content for Tab 2')),
-                              Center(child: Text('Content for Tab 3')),
+                              const Center(child: Text('Content for Tab 2')),
+                              const Center(child: Text('Content for Tab 3')),
                             ],
                           ),
                         ),

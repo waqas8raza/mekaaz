@@ -1,64 +1,104 @@
 import 'package:flutter/material.dart';
+import 'package:mekaaz/theme/app_colors/app_colors.dart';
+import 'package:mekaaz/widgets/custom_text.dart';
 
-class MedicineCard extends StatelessWidget {
-  final IconData icon;
-  final String medicineName;
-  final String dosage;
-  final String time;
-  final String dosageUnit;
-
-  const MedicineCard({
-    super.key,
-    required this.icon,
-    required this.medicineName,
-    required this.dosage,
-    required this.time,
-    required this.dosageUnit,
-  });
+class MedicineCardTab extends StatelessWidget {
+  const MedicineCardTab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(8),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            spreadRadius: 1,
-            blurRadius: 3,
-            offset: const Offset(0, 1),
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Icon(icon, color: Colors.orange),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return SafeArea(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
             children: [
-              Text(medicineName,
-                  style: const TextStyle(fontWeight: FontWeight.bold)),
-              Text('$dosage Before Meal'),
-              Text(time, style: const TextStyle(color: Colors.grey)),
+              Align(
+                  alignment: Alignment.topLeft,
+                  child: CustomText(
+                    text: 'Morning',
+                    fontSize: 16,
+                    color: AppColors.primaryColor,
+                  )),
+              Card(
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  height: 100,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'assets/images/tablets.png',
+                        fit: BoxFit.cover,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomText(
+                            text: 'Medicine Name',
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          Row(
+                            children: [
+                              CustomText(
+                                text: '40mg',
+                                fontSize: 14,
+                                color: AppColors.primaryColor,
+                              ),
+                              const SizedBox(
+                                width: 2,
+                              ),
+                              Container(
+                                height: 15,
+                                width: 1,
+                                color: AppColors.blackColor,
+                              ),
+                              const SizedBox(
+                                width: 2,
+                              ),
+                              CustomText(
+                                text: 'Before Meal',
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              )
+                            ],
+                          ),
+                          CustomText(
+                            text: '10:30 am',
+                            fontSize: 14,
+                            color: AppColors.primaryColor,
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 50,
+                      ),
+                      Container(
+                          height: 90,
+                          width: 70,
+                          decoration: BoxDecoration(
+                              color: AppColors.primaryColor,
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Center(
+                            child: CustomText(
+                              text: 'Token',
+                              fontSize: 14,
+                              color: AppColors.whiteColor,
+                            ),
+                          ))
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-            decoration: BoxDecoration(
-              color: Colors.grey.shade300,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Text(
-              dosageUnit,
-              style: const TextStyle(
-                  color: Colors.black, fontWeight: FontWeight.bold),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

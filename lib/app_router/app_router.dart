@@ -23,15 +23,17 @@ import '../view/subscription_view/card_detail_second_view.dart';
 import '../view/subscription_view/card_detail_view.dart';
 import '../view/subscription_view/subscription_view.dart';
 import '../view/subscription_view/verification_done.dart';
+import '../widgets/medicine_card.dart';
 
 class AppRouter {
   static Map<String, WidgetBuilder> routes = {
-    '/': (context) => const BottomNavBar(),
+    '/': (context) => const MedicineCardTab(),
     '/onboardingScreen': (context) => const OnboardingScreen(),
     '/splashTwoScreen': (context) => const SplashTwoScreen(),
     '/verificationCodeScreen': (context) => VerificationCodeScreen(),
     '/emailScreenOne': (context) => EmailScreenOne(),
-    '/invitationPasswordresetScreen': (context) => InvitationPasswordresetScreen(),
+    '/invitationPasswordresetScreen': (context) =>
+        InvitationPasswordresetScreen(),
     '/profileTypeView': (context) => const ProfileTypeView(),
     '/contactScreen': (context) => ContactScreen(),
     '/verificationcode': (context) => VerificationCodeScreen(),
