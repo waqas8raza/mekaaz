@@ -7,8 +7,9 @@ class AppColors {
   static const secondoryLightColor = Color(0xFFD3CBC4);
   static const blackColor = Color(0xFF121212);
   static const whiteColor = Color(0xFFFFFCF9);
-  static const greyColor = Color(0xFF92979D);
+  static const greyTextColor = Color(0xFF92979D);
   static const lightGreyColor = Color(0xFFE1E4E8);
   static const redColor = Color(0xFFD90000);
   static const skipColor = Color(0xFF92979D);
+  static const blackforgettext = Color(0xFF404040);
 }

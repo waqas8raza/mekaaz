@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
-  double? width;
+  double width;
   Color? color;
   VoidCallback onPressed;
   Widget? widget;
@@ -13,10 +13,10 @@ class CustomButton extends StatelessWidget {
 
   CustomButton({
     super.key,
-    this.width,
+    required this.width,
     this.color,
     required this.onPressed,
-   required this.widget,
+    required this.widget,
     this.icon,
     this.elevation = 0,
   });

@@ -4,13 +4,21 @@ import 'package:mekaaz/widgets/custom_text.dart';
 
 class RoundButton extends StatelessWidget {
   final Color? containerColor;
-  // final Color? borderColor;
+
+  const RoundButton({super.key});
+
+class RoundButton extends StatelessWidget {
+  final Color? titleColor;
+  final Color? containerColor;
+  final Color? borderColor;
   final String title;
   final VoidCallback onPressed;
   const RoundButton(
       {super.key,
-      // this.borderColor,
       this.containerColor = Colors.black,
+      this.borderColor,
+      this.containerColor = Colors.black,
+      this.titleColor = Colors.white,
       required this.onPressed,
       required this.title});
 
@@ -22,13 +30,25 @@ class RoundButton extends StatelessWidget {
         height: 50,
         decoration: BoxDecoration(
             color: containerColor, borderRadius: BorderRadius.circular(30)),
+            border: Border.all(color: borderColor ?? Colors.transparent),
+            color: containerColor,
+            borderRadius: BorderRadius.circular(30),
         child: Center(
             child: CustomText(
                 text: title,
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
-                color: AppColors.whiteColor)),
-      ),
-    );
+                color: AppColors.whiteColor))),
+        child: Center(
+          child: CustomText(
+            text: title,
+            fontSize: 18,
+            fontWeight: FontWeight.w700,
+            color: titleColor,
+          ),
+        ),
+      );
+    
   }
+}
 }
