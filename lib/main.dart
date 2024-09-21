@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
-      // home: const AppointmentView(),
+      // home: const BottomNavBar(),
       initialRoute: '/',
       routes: AppRouter.routes,
     );
