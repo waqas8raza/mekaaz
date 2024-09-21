@@ -44,7 +44,7 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseView> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const CustomText(
+        title: CustomText(
           text: 'Personal Information',
           fontSize: 22,
           fontWeight: FontWeight.w700,
@@ -59,14 +59,14 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseView> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CustomText(
+                CustomText(
                   text:
                       'Add the disease you are suffering through, with its starting date',
                   fontSize: 16,
                   color: AppColors.greyTextColor,
                 ),
                 const SizedBox(height: 30),
-                const CustomText(text: 'Name', fontSize: 18),
+                CustomText(text: 'Name', fontSize: 18),
                 CustomTextField(
                   validator:
                       RequiredValidator(errorText: 'This field is required'),
@@ -74,7 +74,7 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseView> {
                   controller: nameController,
                 ),
                 const SizedBox(height: 20),
-                const CustomText(text: 'Blood Group', fontSize: 18),
+                CustomText(text: 'Blood Group', fontSize: 18),
                 CustomTextField(
                   validator:
                       RequiredValidator(errorText: 'This field is required'),
@@ -96,7 +96,7 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseView> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                const CustomText(text: 'DOB', fontSize: 18),
+                CustomText(text: 'DOB', fontSize: 18),
                 CustomTextField(
                   validator:
                       RequiredValidator(errorText: 'This field is required'),
@@ -119,7 +119,7 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseView> {
                   ),
                 ),
                 const SizedBox(height: 30),
-                const CustomText(
+                CustomText(
                     text: 'Gender', fontSize: 22, fontWeight: FontWeight.w700),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -151,7 +151,7 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseView> {
                   ],
                 ),
                 const SizedBox(height: 40),
-                const CustomText(text: 'Address', fontSize: 18),
+                CustomText(text: 'Address', fontSize: 18),
                 CustomTextField(
                   validator:
                       RequiredValidator(errorText: 'This field is required'),

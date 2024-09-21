@@ -28,12 +28,12 @@ class ProfileTypeView extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: screenHeight * .012),
-              const CustomText(
+               CustomText(
                 text: 'Select profile Type',
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
               ),
-              const CustomText(
+               CustomText(
                 text: 'Select profile Type',
                 fontSize: 20,
                 color: AppColors.greyTextColor,

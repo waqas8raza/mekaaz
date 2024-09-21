@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'app_router/app_router.dart';
 import 'theme/app_colors/app_colors.dart';
 
+
 void main() {
   runApp(const ProviderScope(child: MyApp()));
 }
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
-      // home: const AppointmentView(),
+
+
       initialRoute: '/',
       routes: AppRouter.routes,
     );

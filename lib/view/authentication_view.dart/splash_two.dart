@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mekaaz/app_router/app_router.dart';
 import 'package:mekaaz/widgets/custom_button.dart';
 
 import '../../theme/app_colors/app_colors.dart';
@@ -22,7 +23,7 @@ class SplashTwoScreen extends StatelessWidget {
                   'assets/images/logo.png',
                   fit: BoxFit.cover,
                 ),
-                const CustomText(
+                CustomText(
                   text: "Me'kaaz",
                   fontFamily: 'RoxboroughCF-ExtraBold',
                   fontSize: 28.0,
@@ -37,9 +38,11 @@ class SplashTwoScreen extends StatelessWidget {
           ),
           CustomButton(
             width: 320,
-            onPressed: () {},
+            onPressed: () {
+              AppRouter.navigateTo(context, "withphonenumber");
+            },
             color: AppColors.blackColor,
-            widget: const Row(
+            widget: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CustomText(
@@ -64,7 +67,7 @@ class SplashTwoScreen extends StatelessWidget {
                 const SizedBox(
                   width: 20,
                 ),
-                const CustomText(
+                CustomText(
                   text: 'login via Facebook',
                   color: AppColors.blackColor,
                   fontSize: 18,
@@ -88,7 +91,7 @@ class SplashTwoScreen extends StatelessWidget {
                 const SizedBox(
                   width: 20,
                 ),
-                const CustomText(
+                CustomText(
                   text: 'login via Google',
                   color: AppColors.blackColor,
                   fontSize: 18,
@@ -113,7 +116,7 @@ class SplashTwoScreen extends StatelessWidget {
                 const SizedBox(
                   width: 20,
                 ),
-                const CustomText(
+                CustomText(
                   text: 'login via Email',
                   color: AppColors.blackColor,
                   fontSize: 18,
@@ -121,7 +124,9 @@ class SplashTwoScreen extends StatelessWidget {
                 )
               ],
             ),
-            onPressed: () {},
+            onPressed: () {
+              AppRouter.navigateTo(context, 'loginwithemail');
+            },
           )
         ],
       ),

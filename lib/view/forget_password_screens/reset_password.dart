@@ -7,10 +7,10 @@ import '../../theme/app_colors/app_colors.dart';
 import '../../widgets/custom_text.dart';
 
 // ignore: must_be_immutable
-class EmailScreenOne extends StatelessWidget {
-  EmailScreenOne({super.key});
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+class ResetPasswordScreen extends StatelessWidget {
+  ResetPasswordScreen({super.key});
+  TextEditingController newpassController = TextEditingController();
+  TextEditingController confirmpassController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +26,7 @@ class EmailScreenOne extends StatelessWidget {
               Row(
                 children: [
                   IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+                    onPressed: () {},
                     icon: const Icon(
                       Icons.arrow_back_ios_new_outlined,
                       color: Colors.black,
@@ -47,14 +45,13 @@ class EmailScreenOne extends StatelessWidget {
                       fit: BoxFit.cover,
                     ),
                     CustomText(
-                      text: "Me'kaaz",
-                      fontFamily: 'RoxboroughCF-ExtraBold',
+                      text: "New Password",
                       fontSize: 28.0,
                       fontWeight: FontWeight.bold,
                       color: AppColors.blackColor,
                     ),
                     CustomText(
-                      text: "Add email Credentials",
+                      text: "Please Enter the new Passwords",
                       fontSize: 16.0,
                       fontWeight: FontWeight.normal,
                       color: AppColors.greyTextColor,
@@ -67,44 +64,33 @@ class EmailScreenOne extends StatelessWidget {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: Text('Email'),
+                child: Text('New Password'),
               ),
-              CustomTextField(hintText: '', controller: emailController),
+              CustomTextField(
+                  obscureText: true,
+                  hintText: '',
+                  controller: newpassController),
               const SizedBox(
                 height: 25,
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: Text('Password'),
+                child: Text('Confirm Password'),
               ),
               CustomTextField(
                   obscureText: true,
                   hintText: '',
-                  controller: passwordController),
+                  controller: confirmpassController),
               const SizedBox(
-                height: 15,
-              ),
-              GestureDetector(
-                onTap: () {
-                  AppRouter.navigateTo(context, 'ForgetPasswordScreen');
-                },
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: CustomText(
-                    text: 'Forget Password?',
-                    color: AppColors.blackforgettext,
-                    fontSize: 12,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 200,
+                height: 220,
               ),
               CustomButton(
                 width: 320,
                 color: AppColors.blackColor,
-                onPressed: () {},
-                widget: const Text('Next'),
+                onPressed: () {
+                  AppRouter.replaceWith(context, 'InvitationPasswordresetScreen');
+                },
+                widget: const Text('Done'),
               )
             ],
           ),

@@ -28,7 +28,7 @@ class AddCaretakerView extends ConsumerWidget {
     final selectedGender = ref.watch(selectedGenderProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const CustomText(
+        title: CustomText(
           text: 'Add Caretaker',
           fontSize: 22,
           fontWeight: FontWeight.w700,
@@ -42,13 +42,13 @@ class AddCaretakerView extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CustomText(
+                CustomText(
                   text: 'Input email or phone of the caretaker',
                   fontSize: 16,
                   color: AppColors.greyTextColor,
                 ),
                 const SizedBox(height: 30),
-                const CustomText(
+                CustomText(
                   text: 'Email',
                   fontSize: 18,
                 ),
@@ -59,7 +59,7 @@ class AddCaretakerView extends ConsumerWidget {
                       RequiredValidator(errorText: 'This field is required'),
                 ),
                 const SizedBox(height: 20),
-                const CustomText(
+                CustomText(
                   text: 'Phone',
                   fontSize: 18,
                 ),
@@ -69,8 +69,8 @@ class AddCaretakerView extends ConsumerWidget {
                   validator:
                       RequiredValidator(errorText: 'This field is required'),
                 ),
-                // const SizedBox(height: 30).
-                const CustomText(
+                //  SizedBox(height: 30).
+                CustomText(
                     text: 'Gender', fontSize: 22, fontWeight: FontWeight.w700),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -102,7 +102,7 @@ class AddCaretakerView extends ConsumerWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                const CustomText(
+                CustomText(
                   text: 'Age',
                   fontSize: 18,
                 ),
@@ -113,7 +113,7 @@ class AddCaretakerView extends ConsumerWidget {
                       RequiredValidator(errorText: 'This field is required'),
                 ),
                 const SizedBox(height: 20),
-                const CustomText(
+                CustomText(
                   text: 'Relationship',
                   fontSize: 18,
                 ),
@@ -124,7 +124,7 @@ class AddCaretakerView extends ConsumerWidget {
                       RequiredValidator(errorText: 'This field is required'),
                 ),
                 const SizedBox(height: 20),
-                const CustomText(
+                 CustomText(
                   text: 'Average Time',
                   fontSize: 18,
                 ),

@@ -18,14 +18,14 @@ class VerificationDone extends StatelessWidget {
           ),
           Image.asset('assets/images/payment-done.png'),
           // const SizedBox(height: 20),
-          const CustomText(
+          CustomText(
             text: 'Payment done!',
             fontSize: 20,
             fontWeight: FontWeight.bold,
             color: AppColors.primaryColor,
           ),
           const SizedBox(height: 10),
-          const CustomText(
+          CustomText(
             text:
                 'Your payment is received successfully. Thanks for purchasing Me’kaaz Subscription package.',
             fontSize: 16,

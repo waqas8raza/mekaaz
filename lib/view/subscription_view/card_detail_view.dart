@@ -32,7 +32,7 @@ class CardDetailView extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomText(
+              CustomText(
                 text: 'Select Payment Method',
                 fontWeight: FontWeight.bold,
                 fontSize: 22,
@@ -70,7 +70,7 @@ class CardDetailView extends ConsumerWidget {
           ),
         ),
       ),
-      body: const Column(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Center(
@@ -88,7 +88,7 @@ class CardDetailView extends ConsumerWidget {
               color: AppColors.whiteColor,
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Center(
             child: CustomText(
               text:
