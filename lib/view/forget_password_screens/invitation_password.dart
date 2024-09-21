@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mekaaz/widgets/custom_button.dart';
 
+import '../../app_router/app_router.dart';
 import '../../theme/app_colors/app_colors.dart';
 import '../../widgets/custom_text.dart';
 
@@ -87,10 +88,7 @@ class InvitationPasswordresetScreen extends StatelessWidget {
                             color: AppColors.whiteColor,
                             fontWeight: FontWeight.bold,
                           ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              // Action when the word is clicked
-                            },
+                          recognizer: TapGestureRecognizer()..onTap = () {},
                         ),
                         const TextSpan(
                           text: 'again with new password.',
@@ -106,7 +104,9 @@ class InvitationPasswordresetScreen extends StatelessWidget {
             CustomButton(
               width: 320,
               color: AppColors.blackColor,
-              onPressed: () {},
+              onPressed: () {
+                AppRouter.navigateTo(context, '/splashTwoScreen');
+              },
               widget: CustomText(
                 text: 'Login',
                 fontSize: 18,

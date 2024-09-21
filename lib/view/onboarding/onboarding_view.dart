@@ -8,7 +8,6 @@ class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _OnboardingScreenState createState() => _OnboardingScreenState();
 }
 
@@ -24,17 +23,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         actions: [
           TextButton(
             onPressed: () {
-              AppRouter.replaceWith(context, 'splashtwo');
+              AppRouter.replaceWith(context, '/splashTwoScreen');
             },
-            child: InkWell(
-              onTap: () {
-                AppRouter.replaceWith(context, '/splashTwoScreen');
-              },
-              child: CustomText(
-                text: 'skip',
-                color: AppColors.skipColor,
-                fontSize: 16,
-              ),
+            child: CustomText(
+              text: 'skip',
+              color: AppColors.skipColor,
+              fontSize: 16,
             ),
           ),
         ],
@@ -75,7 +69,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
                 buildPageContent(
                   image: 'assets/images/Diabetes-rafiki 1.png',
-                  title: 'Scheduled Apointments',
+                  title: 'Scheduled Appointments',
                   description: 'Page 5 description here.',
                 ),
               ],
@@ -107,7 +101,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   backgroundColor: AppColors.primaryColor,
                   onPressed: () {
                     if (currentPage == 4) {
-                      AppRouter.navigateTo(context, 'splashtwo');
+                      AppRouter.navigateTo(context, '/splashTwoScreen');
                     } else {
                       _pageController.nextPage(
                         duration: const Duration(milliseconds: 400),
@@ -135,14 +129,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         Image.asset(image!),
         const SizedBox(height: 20),
         Padding(
-          padding:
-              const EdgeInsets.only(left: 20.0), // Padding from the left side
+          padding: const EdgeInsets.only(left: 20.0),
           child: Align(
             alignment: Alignment.centerLeft,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment
-                  .start, // Align children to the start (left)
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title!,

@@ -101,7 +101,7 @@ class VerificationCodeScreen extends StatelessWidget {
               width: 320,
               color: AppColors.blackColor,
               onPressed: () {
-                AppRouter.navigateTo(context, 'ResetPasswordScreen');
+                AppRouter.navigateTo(context, '/invitationPasswordresetScreen');
               },
               widget: const Text('Done'),
             )

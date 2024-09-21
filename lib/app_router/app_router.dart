@@ -31,6 +31,7 @@ class AppRouter {
     '/splashTwoScreen': (context) => const SplashTwoScreen(),
     '/verificationCodeScreen': (context) => VerificationCodeScreen(),
     '/emailScreenOne': (context) => EmailScreenOne(),
+    '/invitationPasswordresetScreen': (context) => InvitationPasswordresetScreen(),
     '/profileTypeView': (context) => const ProfileTypeView(),
     '/contactScreen': (context) => ContactScreen(),
     '/verificationcode': (context) => VerificationCodeScreen(),
