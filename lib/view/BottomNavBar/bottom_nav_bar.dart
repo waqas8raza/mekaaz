@@ -5,6 +5,7 @@ import 'package:mekaaz/view/appointments_view/appointments_detail_view.dart';
 import 'package:mekaaz/view/appointments_view/appointments_view.dart';
 import 'package:mekaaz/view/profile_view/account_view.dart';
 
+import '../medicine_screens.dart/main_medicine_screen.dart';
 import '../profile_type/profile_type_view.dart';
 
 class BottomNavBar extends ConsumerWidget {
@@ -79,7 +80,7 @@ class BottomNavBar extends ConsumerWidget {
               },
               icon: Image.asset(
                 'assets/images/task-square.png',
-                color: currentIndex == 4
+                color: currentIndex == 5
                     ? AppColors.secondoryColor
                     : AppColors.greyTextColor,
               ),
@@ -90,6 +91,7 @@ class BottomNavBar extends ConsumerWidget {
       body: [
         const AppointmentView(),
         const AppointmentView(),
+        const MainBottomScreen(),
         const AppointmentDetailScreen(),
         AccountView(),
         const ProfileTypeView(),
