@@ -96,7 +96,7 @@ class ContactScreen extends StatelessWidget {
               width: 320,
               color: AppColors.blackColor,
               onPressed: () {
-                AppRouter.navigateTo(context, 'verificationcode');
+                AppRouter.navigateTo(context, '/verificationCodeScreen');
               },
               widget: const Text('Verify'),
             )

@@ -78,7 +78,7 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseView> {
                 CustomTextField(
                   validator:
                       RequiredValidator(errorText: 'This field is required'),
-                  hintText: 'Choose Blood Group',
+                  hintText: 'B+',
                   controller: bloodGroupController,
                   suffixButton: PopupMenuButton<String>(
                     onSelected: (value) {
@@ -100,7 +100,7 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseView> {
                 CustomTextField(
                   validator:
                       RequiredValidator(errorText: 'This field is required'),
-                  hintText: 'Enter DOB',
+                  hintText: '13/04/2020',
                   controller: dobController,
                   suffixButton: IconButton(
                     icon: const Icon(Icons.calendar_month),

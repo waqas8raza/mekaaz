@@ -40,7 +40,7 @@ class SplashTwoScreen extends StatelessWidget {
           CustomButton(
             width: 320,
             onPressed: () {
-              AppRouter.navigateTo(context, "contactScreen");
+              AppRouter.navigateTo(context, "/contactScreen");
             },
             color: AppColors.blackColor,
             widget: Center(

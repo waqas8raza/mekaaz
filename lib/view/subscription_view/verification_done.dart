@@ -26,6 +26,7 @@ class VerificationDone extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           CustomText(
+            textAlign: TextAlign.center,
             text:
                 'Your payment is received successfully. Thanks for purchasing Me’kaaz Subscription package.',
             fontSize: 16,
@@ -35,7 +36,7 @@ class VerificationDone extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: RoundButton(
               onPressed: () {
-                AppRouter.navigateTo(context, '/termsAndConditionView');
+                AppRouter.navigateTo(context, '/userProfileView');
               },
               title: 'Close',
               containerColor: AppColors.primaryColor,
