@@ -6,6 +6,7 @@ import 'package:mekaaz/theme/app_colors/app_colors.dart';
 
 import '../../widgets/custom_appbar.dart';
 
+
 class MainBottomScreen extends StatefulWidget {
   const MainBottomScreen({super.key});
 
@@ -14,8 +15,6 @@ class MainBottomScreen extends StatefulWidget {
 }
 
 class _MainBottomScreenState extends State<MainBottomScreen> {
-  var selectedDate = DateTime.now();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,9 +38,10 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
                     initialDate: DateTime.now(),
                     activeColor: const Color(0xff37306B),
                     dayProps: const EasyDayProps(
+                   
                       // ignore: deprecated_member_use
                       activeBorderRadius: 32.0,
-
+                     
                       // ignore: deprecated_member_use
                       inactiveBorderRadius: 32.0,
                     ),

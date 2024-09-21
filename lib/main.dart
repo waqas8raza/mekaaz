@@ -15,16 +15,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Me'kaaz",
+      title: "Me'kaazz",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
         useMaterial3: true,
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
-      // initialRoute: '/',
-      // routes: AppRouter.routes,
-      home:  MedicineDetailsScreen(),
+      initialRoute: '/',
+      routes: AppRouter.routes,
+      // home: const LocationView(),
     );
   }
 }
