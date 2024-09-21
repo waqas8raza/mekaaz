@@ -9,12 +9,10 @@ import 'package:mekaaz/view/forget_password_screens/reset_password.dart';
 import 'package:mekaaz/view/onboarding/onboarding_view.dart';
 import 'package:mekaaz/view/splash_screen_one.dart';
 
-
-
 class AppRouter {
   static Map<String, WidgetBuilder> routes = {
     '/': (context) => const SplashScreenOne(),
-    "onboardscreens": (context) => const OnboardingScreen(),
+    "onboardingScreen": (context) => const OnboardingScreen(),
     "splashtwo": (context) => const SplashTwoScreen(),
     "loginwithemail": (context) => EmailScreenOne(),
     "withphonenumber": (context) => ContactScreen(),

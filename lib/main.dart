@@ -25,8 +25,7 @@ class MyApp extends StatelessWidget {
 
       initialRoute: '/',
       routes: AppRouter.routes,
-      // home:  ProfileTypeView(),
-      // home: const AppointmentView(),
+   
     );
   }
 }
