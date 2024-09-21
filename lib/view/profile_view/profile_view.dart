@@ -39,12 +39,12 @@ class UserProfileView extends ConsumerWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              const CustomText(
+              CustomText(
                 text: 'Angelina Julie',
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
-              const CustomText(
+              CustomText(
                 text: 'AngelinaJulie@gmail.com',
                 fontSize: 20,
                 color: AppColors.greyTextColor,
@@ -155,7 +155,7 @@ class UserProfileView extends ConsumerWidget {
                     decoration: BoxDecoration(
                         color: AppColors.primaryColor,
                         borderRadius: BorderRadius.circular(8)),
-                    child: const Center(
+                    child: Center(
                       child: CustomText(
                         text: 'Logout',
                         fontSize: 18,

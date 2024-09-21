@@ -16,7 +16,6 @@ class ProfileTypeView extends ConsumerWidget {
     double screenHeight = MediaQuery.sizeOf(context).height;
     double screenWidth = MediaQuery.sizeOf(context).width;
 
-    // Example profile type indices
     const int patientIndex = 0;
     const int doctorIndex = 1;
 
@@ -28,12 +27,12 @@ class ProfileTypeView extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: screenHeight * .012),
-              const CustomText(
+              CustomText(
                 text: 'Select profile Type',
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
               ),
-              const CustomText(
+              CustomText(
                 text: 'Select profile Type',
                 fontSize: 20,
                 color: AppColors.greyTextColor,
@@ -131,7 +130,7 @@ class ProfileTypeView extends ConsumerWidget {
               RoundButton(
                 onPressed: () {
                   if (selectedValue != null) {
-                    AppRouter.navigateTo(context, '/addDiseaseView');
+                    AppRouter.replaceWith(context, '/addDiseaseView');
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(

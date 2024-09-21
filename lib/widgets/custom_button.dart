@@ -9,7 +9,7 @@ class CustomButton extends StatelessWidget {
   Widget? widget;
   IconData? icon;
 
-  double? elevation; 
+  double? elevation;
 
   CustomButton({
     super.key,

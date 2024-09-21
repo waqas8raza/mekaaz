@@ -36,7 +36,7 @@ class AccountView extends ConsumerWidget {
     final selectedGender = ref.watch(selectedGenderProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const CustomText(
+        title: CustomText(
           text: 'Acount Information',
           fontSize: 24,
         ),
@@ -47,10 +47,10 @@ class AccountView extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 60,
                     backgroundImage: AssetImage('assets/images/profile.png'),
                   ),
@@ -62,7 +62,7 @@ class AccountView extends ConsumerWidget {
                 ],
               ),
               const SizedBox(height: 20),
-              const CustomText(
+              CustomText(
                 text: 'Full Name',
                 fontSize: 18,
               ),
@@ -71,7 +71,7 @@ class AccountView extends ConsumerWidget {
                 decoration: const InputDecoration(hintText: 'Enter username'),
               ),
               const SizedBox(height: 20),
-              const CustomText(
+              CustomText(
                 text: 'Email',
                 fontSize: 18,
               ),
@@ -82,7 +82,7 @@ class AccountView extends ConsumerWidget {
               const SizedBox(
                 height: 20,
               ),
-              const CustomText(text: 'Blood Group', fontSize: 18),
+              CustomText(text: 'Blood Group', fontSize: 18),
               CustomTextField(
                 validator:
                     RequiredValidator(errorText: 'This field is required'),
@@ -104,7 +104,7 @@ class AccountView extends ConsumerWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              const CustomText(text: 'DOB', fontSize: 18),
+              CustomText(text: 'DOB', fontSize: 18),
               CustomTextField(
                 validator:
                     RequiredValidator(errorText: 'This field is required'),
@@ -127,7 +127,7 @@ class AccountView extends ConsumerWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              const CustomText(text: 'Disease', fontSize: 18),
+              CustomText(text: 'Disease', fontSize: 18),
               CustomTextField(
                 validator:
                     RequiredValidator(errorText: 'This field is required'),
@@ -135,7 +135,7 @@ class AccountView extends ConsumerWidget {
                 controller: nameController,
               ),
               const SizedBox(height: 20),
-              const CustomText(text: 'Starting Date', fontSize: 18),
+              CustomText(text: 'Starting Date', fontSize: 18),
               CustomTextField(
                 validator:
                     RequiredValidator(errorText: 'This field is required'),
@@ -160,7 +160,7 @@ class AccountView extends ConsumerWidget {
               const SizedBox(
                 height: 20,
               ),
-              const CustomText(
+               CustomText(
                   text: 'Gender', fontSize: 22, fontWeight: FontWeight.w700),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,

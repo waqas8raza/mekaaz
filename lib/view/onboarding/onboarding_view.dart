@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mekaaz/app_router/app_router.dart';
 import 'package:mekaaz/theme/app_colors/app_colors.dart';
 import 'package:mekaaz/widgets/custom_text.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -22,11 +23,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       appBar: AppBar(
         actions: [
           TextButton(
-            onPressed: () {},
-            child: const CustomText(
-              text: 'skip',
-              color: AppColors.skipColor,
-              fontSize: 16,
+            onPressed: () {
+              AppRouter.replaceWith(context, 'splashtwo');
+            },
+            child: InkWell(
+              onTap: () {
+                AppRouter.replaceWith(context, '/splashTwoScreen');
+              },
+              child: CustomText(
+                text: 'skip',
+                color: AppColors.skipColor,
+                fontSize: 16,
+              ),
             ),
           ),
         ],
@@ -98,10 +106,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   shape: const CircleBorder(),
                   backgroundColor: AppColors.primaryColor,
                   onPressed: () {
-                    _pageController.nextPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeInOut,
-                    );
+                    if (currentPage == 4) {
+                      AppRouter.navigateTo(context, 'splashtwo');
+                    } else {
+                      _pageController.nextPage(
+                        duration: const Duration(milliseconds: 400),
+                        curve: Curves.easeInOut,
+                      );
+                    }
                   },
                   child: const Icon(
                     Icons.arrow_forward,

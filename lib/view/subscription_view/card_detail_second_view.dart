@@ -37,13 +37,13 @@ class CardDetailSecondView extends ConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomText(
+              CustomText(
                 text: 'Card Details',
                 fontWeight: FontWeight.bold,
                 fontSize: 22,
               ),
               const SizedBox(height: 10),
-              const CustomText(
+              CustomText(
                 text: 'Full Name',
                 fontSize: 18,
               ),
@@ -52,7 +52,7 @@ class CardDetailSecondView extends ConsumerWidget {
                 hintText: 'Enter full name',
               ),
               const SizedBox(height: 10),
-              const CustomText(
+              CustomText(
                 text: 'Card Number',
                 fontSize: 18,
               ),
@@ -68,7 +68,7 @@ class CardDetailSecondView extends ConsumerWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const CustomText(
+                        CustomText(
                           text: 'Expiry Date',
                           fontSize: 18,
                         ),
@@ -85,7 +85,7 @@ class CardDetailSecondView extends ConsumerWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const CustomText(
+                        CustomText(
                           text: 'CVV',
                           fontSize: 18,
                         ),
@@ -118,7 +118,7 @@ class CardDetailSecondView extends ConsumerWidget {
           ),
         ),
       ),
-      body: const Column(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Center(
@@ -136,7 +136,7 @@ class CardDetailSecondView extends ConsumerWidget {
               color: AppColors.whiteColor,
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Center(
             child: CustomText(
               text:

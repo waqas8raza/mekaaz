@@ -32,7 +32,7 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseTwoView> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const CustomText(
+        title: CustomText(
           text: 'Personal Information',
           fontSize: 22,
           fontWeight: FontWeight.w700,
@@ -45,14 +45,14 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseTwoView> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CustomText(
+              CustomText(
                 text:
                     'Add the disease you are suffering through, with its starting date',
                 fontSize: 16,
                 color: AppColors.greyTextColor,
               ),
               const SizedBox(height: 30),
-              const CustomText(
+              CustomText(
                 text: 'Disease',
                 fontSize: 18,
               ),
@@ -63,7 +63,7 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseTwoView> {
                     RequiredValidator(errorText: 'This field is required'),
               ),
               const SizedBox(height: 20),
-              const CustomText(
+              CustomText(
                 text: 'Starting Date',
                 fontSize: 18,
               ),

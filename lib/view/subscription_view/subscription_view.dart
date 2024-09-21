@@ -45,7 +45,7 @@ class SubscriptionView extends ConsumerWidget {
                             height: 100,
                           ),
                           const SizedBox(width: 20),
-                          const CustomText(
+                          CustomText(
                             text: "Me'kaaz",
                             fontFamily: 'RoxboroughCF-ExtraBold',
                             fontSize: 28.0,
@@ -55,14 +55,14 @@ class SubscriptionView extends ConsumerWidget {
                         ],
                       ),
                       const SizedBox(height: 10),
-                      const CustomText(
+                      CustomText(
                         text:
                             'Any Purchase Plan makes you a Me’kaaz App Pro User. You decide how much you want to pay and how much it’s worth. No Ads guaranteed, no limitation on features, one-time purchase.',
                         fontSize: 14,
                         color: AppColors.greyTextColor,
                       ),
                       const SizedBox(height: 30),
-                      const CustomText(
+                      CustomText(
                         text: 'Subscriptions',
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
@@ -112,7 +112,7 @@ class SubscriptionView extends ConsumerWidget {
                                             },
                                           ),
                                         ),
-                                        const CustomText(
+                                        CustomText(
                                           text: '40 Riyals',
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
@@ -121,7 +121,7 @@ class SubscriptionView extends ConsumerWidget {
                                       ],
                                     ),
                                   ),
-                                  const CustomText(
+                                  CustomText(
                                     text:
                                         'You can add unlimited caretakers.(1-time purchase)',
                                     fontSize: 14,
@@ -169,7 +169,7 @@ class SubscriptionView extends ConsumerWidget {
                                           },
                                         ),
                                       ),
-                                      const CustomText(
+                                      CustomText(
                                         text: '20 Riyals',
                                         fontSize: 18,
                                         fontWeight: FontWeight.bold,
@@ -178,7 +178,7 @@ class SubscriptionView extends ConsumerWidget {
                                     ],
                                   ),
                                 ),
-                                const CustomText(
+                                CustomText(
                                   text:
                                       'You can add 5 caretakers.(1-time purchase)',
                                   fontSize: 14,

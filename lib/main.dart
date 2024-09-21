@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         textTheme: GoogleFonts.poppinsTextTheme(),
       ),
+
       initialRoute: '/',
       routes: AppRouter.routes,
       // home:  ProfileTypeView(),
