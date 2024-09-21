@@ -26,10 +26,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             onPressed: () {
               AppRouter.replaceWith(context, 'splashtwo');
             },
-            child: CustomText(
-              text: 'skip',
-              color: AppColors.skipColor,
-              fontSize: 16,
+            child: InkWell(
+              onTap: () {
+                AppRouter.replaceWith(context, '/splashTwoScreen');
+              },
+              child: CustomText(
+                text: 'skip',
+                color: AppColors.skipColor,
+                fontSize: 16,
+              ),
             ),
           ),
         ],

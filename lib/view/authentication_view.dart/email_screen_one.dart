@@ -97,17 +97,19 @@ class EmailScreenOne extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 200,
-              ),
-              CustomButton(
-                width: 320,
-                color: AppColors.blackColor,
-                onPressed: () {},
-                widget: const Text('Next'),
-              )
             ],
           ),
+        ),
+      ),
+      bottomSheet: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: CustomButton(
+          width: double.infinity,
+          color: AppColors.blackColor,
+          onPressed: () {
+            AppRouter.replaceWith(context, '/profileTypeView');
+          },
+          widget: const Text('Next'),
         ),
       ),
     );

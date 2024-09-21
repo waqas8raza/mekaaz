@@ -14,11 +14,11 @@ class SplashScreenOne extends StatefulWidget {
 class _SplashScreenOneState extends State<SplashScreenOne> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3), () {
-      AppRouter.replaceWith(context, 'onboardscreens');
-      
-    });
     super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      AppRouter.replaceWith(
+          context, '/onboardingScreen'); // Ensure route matches
+    });
   }
 
   @override
@@ -33,6 +33,7 @@ class _SplashScreenOneState extends State<SplashScreenOne> {
               'assets/images/logo.png',
               fit: BoxFit.cover,
             ),
+            const SizedBox(height: 16), // Add some spacing
             CustomText(
               text: "Me'kaaz",
               fontFamily: 'RoxboroughCF-ExtraBold',
@@ -47,6 +48,7 @@ class _SplashScreenOneState extends State<SplashScreenOne> {
               fontWeight: FontWeight.normal,
               color: AppColors.primaryColor,
             ),
+            const SizedBox(height: 20), // Additional spacing
           ],
         ),
       ),

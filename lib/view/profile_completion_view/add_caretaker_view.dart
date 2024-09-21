@@ -124,7 +124,7 @@ class AddCaretakerView extends ConsumerWidget {
                       RequiredValidator(errorText: 'This field is required'),
                 ),
                 const SizedBox(height: 20),
-                 CustomText(
+                CustomText(
                   text: 'Average Time',
                   fontSize: 18,
                 ),
@@ -135,17 +135,20 @@ class AddCaretakerView extends ConsumerWidget {
                       RequiredValidator(errorText: 'This field is required'),
                 ),
                 const SizedBox(height: 40),
-                RoundButton(
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        AppRouter.navigateTo(context, '/invitationSentView');
-                      }
-                    },
-                    title: 'Send Invite')
               ],
             ),
           ),
         ),
+      ),
+      bottomSheet: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: RoundButton(
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                AppRouter.navigateTo(context, '/invitationSentView');
+              }
+            },
+            title: 'Send Invite'),
       ),
     );
   }

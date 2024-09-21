@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-
+import 'package:mekaaz/view/authentication_view.dart/contact_screen.dart';
+import 'package:mekaaz/view/authentication_view.dart/email_screen_one.dart';
+import 'package:mekaaz/view/authentication_view.dart/splash_two.dart';
+import 'package:mekaaz/view/authentication_view.dart/verification_screen.dart';
 import 'package:mekaaz/view/forget_password_screens/forget_password.dart';
+import 'package:mekaaz/view/forget_password_screens/invitation_password.dart';
 import 'package:mekaaz/view/forget_password_screens/reset_password.dart';
 import 'package:mekaaz/view/onboarding/onboarding_view.dart';
+import 'package:mekaaz/view/splash_screen_one.dart';
 
 
-import '../view/authentication_view.dart/contact_screen.dart';
-import '../view/authentication_view.dart/email_screen_one.dart';
-import '../view/authentication_view.dart/splash_two.dart';
-import '../view/authentication_view.dart/verification_screen.dart';
-import '../view/forget_password_screens/invitation_password.dart';
-import '../view/medicine_screens.dart/main_medicine_screen.dart';
 
 class AppRouter {
   static Map<String, WidgetBuilder> routes = {
-    '/': (context) => const MainBottomScreen(),
+    '/': (context) => const SplashScreenOne(),
     "onboardscreens": (context) => const OnboardingScreen(),
     "splashtwo": (context) => const SplashTwoScreen(),
     "loginwithemail": (context) => EmailScreenOne(),
