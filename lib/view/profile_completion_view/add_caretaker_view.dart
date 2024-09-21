@@ -39,108 +39,113 @@ class AddCaretakerView extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Form(
             key: formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustomText(
-                  text: 'Input email or phone of the caretaker',
-                  fontSize: 16,
-                  color: AppColors.greyTextColor,
-                ),
-                const SizedBox(height: 30),
-                CustomText(
-                  text: 'Email',
-                  fontSize: 18,
-                ),
-                CustomTextField(
-                  hintText: 'Email ',
-                  controller: emailController,
-                  validator:
-                      RequiredValidator(errorText: 'This field is required'),
-                ),
-                const SizedBox(height: 20),
-                CustomText(
-                  text: 'Phone',
-                  fontSize: 18,
-                ),
-                CustomTextField(
-                  hintText: 'Phone ',
-                  controller: phoneController,
-                  validator:
-                      RequiredValidator(errorText: 'This field is required'),
-                ),
-                //  SizedBox(height: 30).
-                CustomText(
-                    text: 'Gender', fontSize: 22, fontWeight: FontWeight.w700),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: RadioListTile<String>(
-                        activeColor: AppColors.blackColor,
-                        title: const Text('Male'),
-                        value: 'Male',
-                        groupValue: selectedGender,
-                        onChanged: (value) {
-                          ref.read(selectedGenderProvider.notifier).state =
-                              value!;
-                        },
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CustomText(
+                    text: 'Input email or phone of the caretaker',
+                    fontSize: 16,
+                    color: AppColors.greyTextColor,
+                  ),
+                  const SizedBox(height: 30),
+                  CustomText(
+                    text: 'Email',
+                    fontSize: 18,
+                  ),
+                  CustomTextField(
+                    hintText: 'Email ',
+                    controller: emailController,
+                    validator:
+                        RequiredValidator(errorText: 'This field is required'),
+                  ),
+                  const SizedBox(height: 20),
+                  CustomText(
+                    text: 'Phone',
+                    fontSize: 18,
+                  ),
+                  CustomTextField(
+                    hintText: 'Phone ',
+                    controller: phoneController,
+                    validator:
+                        RequiredValidator(errorText: 'This field is required'),
+                  ),
+                  //  SizedBox(height: 30).
+                  CustomText(
+                      text: 'Gender',
+                      fontSize: 22,
+                      fontWeight: FontWeight.w700),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: RadioListTile<String>(
+                          activeColor: AppColors.blackColor,
+                          title: const Text('Male'),
+                          value: 'Male',
+                          groupValue: selectedGender,
+                          onChanged: (value) {
+                            ref.read(selectedGenderProvider.notifier).state =
+                                value!;
+                          },
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: RadioListTile<String>(
-                        activeColor: AppColors.blackColor,
-                        title: const Text('Female'),
-                        value: 'Female',
-                        groupValue: selectedGender,
-                        onChanged: (value) {
-                          ref.read(selectedGenderProvider.notifier).state =
-                              value!;
-                        },
+                      Expanded(
+                        child: RadioListTile<String>(
+                          activeColor: AppColors.blackColor,
+                          title: const Text('Female'),
+                          value: 'Female',
+                          groupValue: selectedGender,
+                          onChanged: (value) {
+                            ref.read(selectedGenderProvider.notifier).state =
+                                value!;
+                          },
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                CustomText(
-                  text: 'Age',
-                  fontSize: 18,
-                ),
-                CustomTextField(
-                  hintText: 'Age ',
-                  controller: ageController,
-                  validator:
-                      RequiredValidator(errorText: 'This field is required'),
-                ),
-                const SizedBox(height: 20),
-                CustomText(
-                  text: 'Relationship',
-                  fontSize: 18,
-                ),
-                CustomTextField(
-                  hintText: 'Relationship ',
-                  controller: relationshipController,
-                  validator:
-                      RequiredValidator(errorText: 'This field is required'),
-                ),
-                const SizedBox(height: 20),
-                CustomText(
-                  text: 'Average Time',
-                  fontSize: 18,
-                ),
-                CustomTextField(
-                  hintText: 'Average Time ',
-                  controller: timeController,
-                  validator:
-                      RequiredValidator(errorText: 'This field is required'),
-                ),
-                const SizedBox(height: 40),
-              ],
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  CustomText(
+                    text: 'Age',
+                    fontSize: 18,
+                  ),
+                  CustomTextField(
+                    hintText: 'Age ',
+                    controller: ageController,
+                    validator:
+                        RequiredValidator(errorText: 'This field is required'),
+                  ),
+                  const SizedBox(height: 20),
+                  CustomText(
+                    text: 'Relationship',
+                    fontSize: 18,
+                  ),
+                  CustomTextField(
+                    hintText: 'Relationship ',
+                    controller: relationshipController,
+                    validator:
+                        RequiredValidator(errorText: 'This field is required'),
+                  ),
+                  const SizedBox(height: 20),
+                  CustomText(
+                    text: 'Average Time',
+                    fontSize: 18,
+                  ),
+                  CustomTextField(
+                    hintText: 'Average Time ',
+                    controller: timeController,
+                    validator:
+                        RequiredValidator(errorText: 'This field is required'),
+                  ),
+                  const SizedBox(height: 40),
+                ],
+              ),
             ),
           ),
         ),
       ),
-      bottomSheet: Padding(
+      bottomSheet: Container(
+        margin: const EdgeInsets.only(bottom: 20),
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: RoundButton(
             onPressed: () {

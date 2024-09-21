@@ -20,13 +20,16 @@ import '../view/BottomNavBar/bottom_nav_bar.dart';
 
 import '../view/appointments_view/appointment_done.dart';
 
+import '../view/medicine_screens.dart/main_medicine_screen.dart';
+import '../view/medicine_screens.dart/medicine_detail_view.dart';
+import '../view/medicine_screens.dart/medicine_tab_one/medicines_screen.dart';
 import '../view/profile_completion_view/add_disease.view.dart';
 import '../view/profile_view/user_profile_view.dart';
 import '../view/subscription_view/card_detail_second_view.dart';
 import '../view/subscription_view/card_detail_view.dart';
 import '../view/subscription_view/subscription_view.dart';
 import '../view/subscription_view/verification_done.dart';
-import '../widgets/medicine_card.dart';
+import '../widgets/tabs_medicine.dart/medicine_card.dart';
 
 class AppRouter {
   static Map<String, WidgetBuilder> routes = {
@@ -58,6 +61,7 @@ class AppRouter {
     '/cardDetailSecondView': (context) => CardDetailSecondView(),
     '/verificationDone': (context) => const VerificationDone(),
     '/termsAndConditionView': (context) => const TermsAndConditionView(),
+    '/MedicineDetailsScreen': (context) => MedicineDetailsScreen(),
   };
 
   // Method for pushing a new route

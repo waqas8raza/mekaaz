@@ -2,10 +2,13 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mekaaz/app_router/app_router.dart';
 import 'package:mekaaz/theme/app_colors/app_colors.dart';
-import 'package:mekaaz/widgets/medicine_card.dart';
+import 'package:mekaaz/widgets/tabs_medicine.dart/medicine_card.dart';
 
 import '../../widgets/custom_appbar.dart';
 import '../../widgets/custom_calender.dart';
+import '../../widgets/tabs_medicine.dart/appoinment.dart';
+import '../../widgets/tabs_medicine.dart/device_tab.dart';
+import '../appointments_view/appointments_view.dart';
 
 class MainBottomScreen extends StatefulWidget {
   const MainBottomScreen({super.key});
@@ -68,14 +71,15 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
                               Container(
                                 decoration: const BoxDecoration(
                                     color: AppColors.whiteColor),
-                                child:  Row(
+                                child: const Row(
                                   children: [
-                                    Image.asset('name'),
+                                    SizedBox(
+                                        width: 340, child: MedicineCardTab())
                                   ],
                                 ),
                               ),
-                              const Center(child: Text('Content for Tab 2')),
-                              const Center(child: Text('Content for Tab 3')),
+                              const DeviceManagementTab(),
+                              const AppointmentCards(isVirtual: false)
                             ],
                           ),
                         ),
@@ -144,7 +148,7 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
             });
           },
           backgroundColor: Colors.red,
-          child: const Icon(Icons.add),
+          child: const Icon(Icons.notifications_active_outlined),
         ),
       ),
     );

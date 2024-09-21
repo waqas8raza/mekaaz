@@ -43,7 +43,7 @@ class InvitationSentView extends StatelessWidget {
                 },
                 title: 'Go to main Menu '),
             const SizedBox(
-              height: 6,
+              height: 20,
             )
           ],
         ),
