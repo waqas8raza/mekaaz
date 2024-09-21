@@ -25,6 +25,8 @@ class MyApp extends StatelessWidget {
       // home: const BottomNavBar(),
       initialRoute: '/',
       routes: AppRouter.routes,
+      // home:  ProfileTypeView(),
+      // home: const AppointmentView(),
     );
   }
 }

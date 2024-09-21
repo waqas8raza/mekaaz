@@ -112,7 +112,7 @@ class AppointmentCard extends StatelessWidget {
                   width: 50,
                 ),
                 const SizedBox(width: 16),
-                const Expanded(
+                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -149,7 +149,7 @@ class AppointmentCard extends StatelessWidget {
                 bottomRight: Radius.circular(12),
               ),
             ),
-            child: const Center(
+            child:  Center(
               child: CustomText(
                 text: 'Physical: 12 Feb, 2023 - 08:00pm',
                 fontSize: 14,

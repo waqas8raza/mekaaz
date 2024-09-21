@@ -28,7 +28,7 @@ class InvitationSentView extends StatelessWidget {
               'assets/images/invitation_sent.png',
             )),
             const SizedBox(height: 20),
-            const CustomText(
+            CustomText(
               text: 'Invitation sent to caretaker successfully!',
               fontSize: 18,
               color: AppColors.whiteColor,
@@ -39,7 +39,7 @@ class InvitationSentView extends StatelessWidget {
                 borderColor: AppColors.whiteColor,
                 titleColor: AppColors.whiteColor,
                 onPressed: () {
-                  AppRouter.navigateTo(context, '/userProfileView');
+                  AppRouter.navigateTo(context, '/bottomNavBar');
                 },
                 title: 'Go to main Menu '),
             const SizedBox(

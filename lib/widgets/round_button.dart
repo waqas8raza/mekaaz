@@ -7,13 +7,15 @@ class RoundButton extends StatelessWidget {
   final Color? borderColor;
   final String title;
   final VoidCallback onPressed;
-  const RoundButton(
-      {super.key,
-      this.borderColor,
-      this.containerColor = Colors.black,
-      this.titleColor = Colors.white,
-      required this.onPressed,
-      required this.title});
+
+  const RoundButton({
+    super.key,
+    this.containerColor = Colors.black,
+    this.borderColor,
+    this.titleColor = Colors.white,
+    required this.onPressed,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +24,10 @@ class RoundButton extends StatelessWidget {
       child: Container(
         height: 50,
         decoration: BoxDecoration(
-            border: Border.all(color: borderColor ?? Colors.transparent),
-            color: containerColor,
-            borderRadius: BorderRadius.circular(30)),
+          color: containerColor,
+          borderRadius: BorderRadius.circular(30),
+          border: Border.all(color: borderColor ?? Colors.transparent),
+        ),
         child: Center(
           child: CustomText(
             text: title,

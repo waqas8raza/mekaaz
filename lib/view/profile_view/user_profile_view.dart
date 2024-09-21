@@ -13,8 +13,8 @@ class UserProfileView extends ConsumerWidget {
 // bool isSelected = false;
   @override
   Widget build(BuildContext context, ref) {
-    final locationSelected = ref.watch(locationSelectedProvider);
-    final notifcationSelected = ref.watch(locationSelectedProvider);
+    // final locationSelected = ref.watch(locationSelectedProvider);
+    // final notifcationSelected = ref.watch(locationSelectedProvider);
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -39,12 +39,12 @@ class UserProfileView extends ConsumerWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              const CustomText(
+              CustomText(
                 text: 'Angelina Julie',
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
-              const CustomText(
+              CustomText(
                 text: 'AngelinaJulie@gmail.com',
                 fontSize: 20,
                 color: AppColors.greyTextColor,
@@ -61,7 +61,9 @@ class UserProfileView extends ConsumerWidget {
               ),
               const SizedBox(height: 10),
               userProfileCard(
-                onPressed: () {},
+                onPressed: () {
+                  AppRouter.navigateTo(context, '/subscriptionView');
+                },
                 title: 'Subscription Plan',
                 image: 'assets/images/dollar-circle.png',
                 trailing: const Icon(
@@ -147,7 +149,7 @@ class UserProfileView extends ConsumerWidget {
                 alignment: Alignment.bottomLeft,
                 child: InkWell(
                   onTap: () {
-                    AppRouter.navigateTo(context, '/accountView');
+                    AppRouter.navigateTo(context, '/splashTwoScreen');
                   },
                   child: Container(
                     height: 55,
@@ -155,7 +157,7 @@ class UserProfileView extends ConsumerWidget {
                     decoration: BoxDecoration(
                         color: AppColors.primaryColor,
                         borderRadius: BorderRadius.circular(8)),
-                    child: const Center(
+                    child: Center(
                       child: CustomText(
                         text: 'Logout',
                         fontSize: 18,

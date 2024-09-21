@@ -42,7 +42,7 @@ class AppointmentDetailScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 16),
                 // Doctor Info
-                const Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomText(
@@ -65,33 +65,33 @@ class AppointmentDetailScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
-            const CustomText(
+            CustomText(
               text: 'Purpose',
               fontSize: 18,
               fontWeight: FontWeight.w700,
             ),
             const SizedBox(height: 8),
-            const CustomText(
+            CustomText(
               text:
                   'Lorem ipsum dolor sit amet consectetur. Praesent malesuada nunc accumsan velit quis id at cras. Laciniaviverra pharetra et est orci mollis morbi posuere. Arcu habitant aliquet risus pharetra. Turpis et ullamcorper quisque auctor.',
               fontSize: 14,
               color: Colors.grey,
             ),
             const SizedBox(height: 20),
-            const CustomText(
+            CustomText(
               text: 'Location',
               fontSize: 18,
               fontWeight: FontWeight.w700,
             ),
             const SizedBox(height: 8),
-            const CustomText(
+            CustomText(
               text: 'https://goo.gl/maps/PnJi5ZFDbSSmXG1862',
               fontSize: 14,
               color: Colors.blue,
             ),
             const SizedBox(height: 20),
             // Timing Section
-            const CustomText(
+            CustomText(
               text: 'Timing',
               fontSize: 18,
               fontWeight: FontWeight.w700,

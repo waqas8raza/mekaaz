@@ -7,8 +7,8 @@ import '../../theme/app_colors/app_colors.dart';
 import '../../widgets/custom_text.dart';
 
 // ignore: must_be_immutable
-class EmailScreenOne extends StatelessWidget {
-  EmailScreenOne({super.key});
+class ForgetPasswordScreen extends StatelessWidget {
+  ForgetPasswordScreen({super.key});
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   @override
@@ -46,18 +46,22 @@ class EmailScreenOne extends StatelessWidget {
                       'assets/images/logo.png',
                       fit: BoxFit.cover,
                     ),
-                    CustomText(
-                      text: "Me'kaaz",
-                      fontFamily: 'RoxboroughCF-ExtraBold',
-                      fontSize: 28.0,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.blackColor,
+                    const SizedBox(
+                      height: 15,
                     ),
                     CustomText(
-                      text: "Add email Credentials",
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.normal,
-                      color: AppColors.greyTextColor,
+                      text: "Forgot Password",
+                      fontSize: 28.0,
+                      color: AppColors.blackColor,
+                    ),
+                    FittedBox(
+                      child: CustomText(
+                        text:
+                            "We're here to help you get back into your account.",
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.normal,
+                        color: AppColors.greyTextColor,
+                      ),
                     ),
                   ],
                 ),
@@ -71,45 +75,21 @@ class EmailScreenOne extends StatelessWidget {
               ),
               CustomTextField(hintText: '', controller: emailController),
               const SizedBox(
-                height: 25,
+                height: 250,
               ),
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: Text('Password'),
-              ),
-              CustomTextField(
-                  obscureText: true,
-                  hintText: '',
-                  controller: passwordController),
-              const SizedBox(
-                height: 15,
-              ),
-              GestureDetector(
-                onTap: () {
-                  AppRouter.navigateTo(context, 'ForgetPasswordScreen');
+              CustomButton(
+                width: 320,
+                onPressed: () {
+                  AppRouter.navigateTo(context, 'verificationcode');
                 },
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: CustomText(
-                    text: 'Forget Password?',
-                    color: AppColors.blackforgettext,
-                    fontSize: 12,
-                  ),
+                widget: CustomText(
+                  text: 'Verify Otp',
+                  color: AppColors.blackColor,
+                  fontSize: 18,
                 ),
-              ),
+              )
             ],
           ),
-        ),
-      ),
-      bottomSheet: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: CustomButton(
-          width: double.infinity,
-          color: AppColors.blackColor,
-          onPressed: () {
-            AppRouter.replaceWith(context, '/profileTypeView');
-          },
-          widget: const Text('Next'),
         ),
       ),
     );
