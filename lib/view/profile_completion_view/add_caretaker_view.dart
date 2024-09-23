@@ -21,6 +21,7 @@ class AddCaretakerView extends ConsumerWidget {
   final relationshipController = TextEditingController();
   final ageController = TextEditingController();
   final timeController = TextEditingController();
+  final contatcControllers = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
   @override
@@ -64,12 +65,35 @@ class AddCaretakerView extends ConsumerWidget {
                     text: 'Phone',
                     fontSize: 18,
                   ),
-                  CustomTextField(
-                    hintText: 'Phone ',
-                    controller: phoneController,
-                    validator:
-                        RequiredValidator(errorText: 'This field is required'),
+                  Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border:
+                                Border.all(color: AppColors.blackforgettext)),
+                        child: const Material(
+                          shape: CircleBorder(),
+                          elevation: 2,
+                          child: CircleAvatar(
+                            radius: 26,
+                            backgroundColor: AppColors.whiteColor,
+                            child: Text('+92'),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        child: CustomTextField(
+                            keyboardType: TextInputType.number,
+                            hintText: '',
+                            controller: contatcControllers),
+                      ),
+                    ],
                   ),
+
                   //  SizedBox(height: 30).
                   CustomText(
                       text: 'Gender',

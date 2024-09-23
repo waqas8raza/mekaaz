@@ -15,12 +15,14 @@ import 'package:mekaaz/view/profile_type/profile_type_view.dart';
 import 'package:mekaaz/view/profile_view/account_view.dart';
 import 'package:mekaaz/view/profile_view/terms_and_condition_view.dart';
 import 'package:mekaaz/view/splash_screen_one.dart';
+import 'package:mekaaz/widgets/tabs_medicine.dart/medicine_card.dart';
 
 import '../view/BottomNavBar/bottom_nav_bar.dart';
 
+import '../view/add_medicine/add_detail_view.dart';
 import '../view/appointments_view/appointment_done.dart';
 
-
+import '../view/appointments_view/appointments_view.dart';
 import '../view/medicine_screens.dart/medicine_detail_view.dart';
 import '../view/profile_completion_view/add_disease.view.dart';
 import '../view/profile_view/user_profile_view.dart';
@@ -29,18 +31,17 @@ import '../view/subscription_view/card_detail_view.dart';
 import '../view/subscription_view/subscription_view.dart';
 import '../view/subscription_view/verification_done.dart';
 
-
 class AppRouter {
   static Map<String, WidgetBuilder> routes = {
-    '/': (context) => const SplashScreenOne(),
+    '/SplashScreenOne': (context) => const SplashScreenOne(),
     '/onboardingScreen': (context) => const OnboardingScreen(),
     '/splashTwoScreen': (context) => const SplashTwoScreen(),
+    '/contactScreen': (context) => ContactScreen(),
     '/verificationCodeScreen': (context) => VerificationCodeScreen(),
     '/emailScreenOne': (context) => EmailScreenOne(),
     '/invitationPasswordresetScreen': (context) =>
         InvitationPasswordresetScreen(),
     '/profileTypeView': (context) => const ProfileTypeView(),
-    '/contactScreen': (context) => ContactScreen(),
     '/notificationView': (context) => const NotificationView(),
     '/verificationcode': (context) => VerificationCodeScreen(),
     '/forgetPassword': (context) => ForgetPasswordScreen(),
@@ -61,6 +62,7 @@ class AppRouter {
     '/verificationDone': (context) => const VerificationDone(),
     '/termsAndConditionView': (context) => const TermsAndConditionView(),
     '/MedicineDetailsScreen': (context) => MedicineDetailsScreen(),
+    '/AppointmentView': (context) => const AppointmentView(),
   };
 
   // Method for pushing a new route

@@ -8,7 +8,7 @@ import '../../widgets/custom_appbar.dart';
 import '../../widgets/custom_calender.dart';
 import '../../widgets/tabs_medicine.dart/appoinment.dart';
 import '../../widgets/tabs_medicine.dart/device_tab.dart';
-import '../appointments_view/appointments_view.dart';
+
 
 class MainBottomScreen extends StatefulWidget {
   const MainBottomScreen({super.key});
@@ -79,7 +79,13 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
                                 ),
                               ),
                               const DeviceManagementTab(),
-                              const AppointmentCards(isVirtual: false)
+                              GestureDetector(
+                                  onTap: () {
+                                    AppRouter.navigateTo(
+                                        context, '/AppointmentView');
+                                  },
+                                  child:
+                                      const AppointmentCards(isVirtual: false))
                             ],
                           ),
                         ),
