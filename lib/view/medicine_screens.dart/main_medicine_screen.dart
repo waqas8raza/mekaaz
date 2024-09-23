@@ -2,10 +2,13 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mekaaz/app_router/app_router.dart';
 import 'package:mekaaz/theme/app_colors/app_colors.dart';
-import 'package:mekaaz/widgets/medicine_card.dart';
+import 'package:mekaaz/widgets/tabs_medicine.dart/medicine_card.dart';
 
 import '../../widgets/custom_appbar.dart';
 import '../../widgets/custom_calender.dart';
+import '../../widgets/tabs_medicine.dart/appoinment.dart';
+import '../../widgets/tabs_medicine.dart/device_tab.dart';
+
 
 class MainBottomScreen extends StatefulWidget {
   const MainBottomScreen({super.key});
@@ -43,12 +46,12 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
               const SizedBox(height: 20),
               if (isCaretakerAdded)
                 // If caretaker is added, show the tabs
-                const Expanded(
+                Expanded(
                   child: DefaultTabController(
                     length: 3,
                     child: Column(
                       children: [
-                        TabBar(
+                        const TabBar(
                           labelStyle: TextStyle(
                             fontSize:
                                 14, // Increase the font size for selected tab
@@ -65,15 +68,24 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
                         Expanded(
                           child: TabBarView(
                             children: [
-                              MedicineCard(
-                                dosage: 'af',
-                                icon: Icons.add_ic_call_outlined,
-                                medicineName: 'asda',
-                                time: 'asd',
-                                dosageUnit: 'dad',
+                              Container(
+                                decoration: const BoxDecoration(
+                                    color: AppColors.whiteColor),
+                                child: const Row(
+                                  children: [
+                                    SizedBox(
+                                        width: 340, child: MedicineCardTab())
+                                  ],
+                                ),
                               ),
-                              Center(child: Text('Content for Tab 2')),
-                              Center(child: Text('Content for Tab 3')),
+                              const DeviceManagementTab(),
+                              GestureDetector(
+                                  onTap: () {
+                                    AppRouter.navigateTo(
+                                        context, '/AppointmentView');
+                                  },
+                                  child:
+                                      const AppointmentCards(isVirtual: false))
                             ],
                           ),
                         ),
@@ -142,7 +154,7 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
             });
           },
           backgroundColor: Colors.red,
-          child: const Icon(Icons.add),
+          child: const Icon(Icons.notifications_active_outlined),
         ),
       ),
     );

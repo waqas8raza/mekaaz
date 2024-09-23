@@ -102,7 +102,7 @@ class EmailScreenOne extends StatelessWidget {
         ),
       ),
       bottomSheet: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.only(left: 16,right: 16,bottom: 20),
         child: CustomButton(
           width: double.infinity,
           color: AppColors.blackColor,
