@@ -19,6 +19,8 @@ import '../view/BottomNavBar/bottom_nav_bar.dart';
 
 import '../view/appointments_view/appointment_done.dart';
 
+import '../view/appointments_view/appointments_view.dart';
+import '../view/medicine_screens.dart/medicine_detail_view.dart';
 import '../view/profile_completion_view/add_disease.view.dart';
 import '../view/profile_view/user_profile_view.dart';
 import '../view/subscription_view/card_detail_second_view.dart';
