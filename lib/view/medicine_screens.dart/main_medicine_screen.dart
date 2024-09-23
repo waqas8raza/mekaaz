@@ -22,6 +22,7 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: CustomAppBar(
         onProfilePressed: () {
