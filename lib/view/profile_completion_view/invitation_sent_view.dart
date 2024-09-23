@@ -12,14 +12,22 @@ class InvitationSentView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
-      appBar: AppBar(
-        backgroundColor: AppColors.primaryColor,
-      ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.only(left: 16, right: 16, top: 30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: IconButton(
+                  onPressed: () {
+                    AppRouter.navigateTo(context, '/bottomNavBar');
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back_ios_new,
+                    color: AppColors.blackColor,
+                  )),
+            ),
             const SizedBox(
               height: 200,
             ),
@@ -43,7 +51,7 @@ class InvitationSentView extends StatelessWidget {
                 },
                 title: 'Go to main Menu '),
             const SizedBox(
-              height: 6,
+              height: 20,
             )
           ],
         ),

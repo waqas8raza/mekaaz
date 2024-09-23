@@ -8,7 +8,8 @@ class CustomText extends StatelessWidget {
   final TextDecoration? decoration;
   final FontWeight fontWeight;
   final Color? color;
-  int? maxLines;
+  final int? maxLines;
+  final String validationErrorText; // Fallback text if validation fails
 
   CustomText({
     super.key,
@@ -20,14 +21,19 @@ class CustomText extends StatelessWidget {
     this.fontSize = 28.0,
     this.fontWeight = FontWeight.normal,
     this.color,
-  });
+    this.validationErrorText = "Invalid text", // Default fallback text
+  }) : assert(text.isNotEmpty,
+            "Text cannot be empty"); // Basic validation: text cannot be empty
 
   @override
   Widget build(BuildContext context) {
+    // Additional validation logic
+    final displayText = _validateText(text) ? text : validationErrorText;
+
     return Text(
+      displayText,
       textAlign: textAlign,
       maxLines: maxLines,
-      text,
       style: TextStyle(
         decoration: decoration,
         fontFamily: fontFamily,
@@ -36,5 +42,13 @@ class CustomText extends StatelessWidget {
         color: color,
       ),
     );
+  }
+
+  // Custom validation function
+  bool _validateText(String text) {
+    if (text.isEmpty) {
+      return false; 
+    }
+    return true;
   }
 }
