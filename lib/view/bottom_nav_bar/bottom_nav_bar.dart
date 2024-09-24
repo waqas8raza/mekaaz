@@ -6,6 +6,7 @@ import 'package:mekaaz/view/appointments_view/appointments_view.dart';
 import 'package:mekaaz/view/profile_view/account_view.dart';
 
 import '../medicine_screens.dart/main_medicine_screen.dart';
+import '../medicine_screens.dart/medicine_tabs/medicines_screen.dart';
 import '../profile_type/profile_type_view.dart';
 
 class BottomNavBar extends ConsumerWidget {
@@ -89,7 +90,7 @@ class BottomNavBar extends ConsumerWidget {
         ),
       ),
       body: [
-        const AppointmentView(),
+        const MedicinesTabOne(),
         const AppointmentView(),
         const MainBottomScreen(),
         const AppointmentDetailScreen(),
@@ -101,7 +102,7 @@ class BottomNavBar extends ConsumerWidget {
 }
 
 class BottomNavBarNotifier extends StateNotifier<int> {
-  BottomNavBarNotifier() : super(0);
+  BottomNavBarNotifier() : super(2);
 
   void setIndex(int index) {
     state = index;

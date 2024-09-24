@@ -88,7 +88,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 width: 320,
                 color: AppColors.blackColor,
                 onPressed: () {
-                  AppRouter.replaceWith(context, 'InvitationPasswordresetScreen');
+                  AppRouter.replaceWith(context, '/invitationPasswordReset');
                 },
                 widget: const Text('Done'),
               )

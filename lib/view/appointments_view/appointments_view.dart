@@ -70,10 +70,12 @@ class _AppointmentViewState extends State<AppointmentView>
               ],
             ),
           ),
-          // const SizedBox(height: 10),
-          const Center(
-            child: AppointmentCard(
-              isVirtual: false,
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Center(
+              child: AppointmentCard(
+                isVirtual: false,
+              ),
             ),
           ),
         ],
@@ -93,6 +95,7 @@ class AppointmentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(top: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: AppColors.lightGreyColor, width: 1.4),
@@ -112,7 +115,7 @@ class AppointmentCard extends StatelessWidget {
                   width: 50,
                 ),
                 const SizedBox(width: 16),
-                 Expanded(
+                Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -132,7 +135,7 @@ class AppointmentCard extends StatelessWidget {
                         fontSize: 14,
                         color: AppColors.primaryColor,
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                     ],
                   ),
                 ),
@@ -149,7 +152,7 @@ class AppointmentCard extends StatelessWidget {
                 bottomRight: Radius.circular(12),
               ),
             ),
-            child:  Center(
+            child: Center(
               child: CustomText(
                 text: 'Physical: 12 Feb, 2023 - 08:00pm',
                 fontSize: 14,

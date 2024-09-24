@@ -55,7 +55,6 @@ class SplashTwoScreen extends StatelessWidget {
           CustomButton(
             width: 320,
             widget: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
                   "assets/images/facebook_icon.png",
@@ -79,7 +78,6 @@ class SplashTwoScreen extends StatelessWidget {
           CustomButton(
             width: 320,
             widget: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
                   "assets/images/google_icon.png",
@@ -99,19 +97,19 @@ class SplashTwoScreen extends StatelessWidget {
               // AppRouter.navigateTo(context, '/emailScreenOne');
             },
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
           const Text('or', style: TextStyle(fontSize: 16)),
+          const SizedBox(height: 10),
           CustomButton(
             width: 320,
             widget: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
                   "assets/images/email.png",
                   width: 24,
                   height: 24,
                 ),
-                const SizedBox(width: 10),
+                const SizedBox(width: 20),
                 CustomText(
                   text: 'Login via Email',
                   color: AppColors.blackColor,

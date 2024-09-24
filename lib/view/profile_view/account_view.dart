@@ -198,7 +198,10 @@ class AccountView extends ConsumerWidget {
                   onPressed: () {
                     AppRouter.navigateTo(context, '/userProfileView');
                   },
-                  title: 'Save Changes')
+                  title: 'Save Changes'),
+              const SizedBox(
+                height: 40,
+              ),
             ],
           ),
         ),

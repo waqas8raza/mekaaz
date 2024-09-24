@@ -14,11 +14,12 @@ import 'package:mekaaz/view/profile_completion_view/invitation_sent_view.dart';
 import 'package:mekaaz/view/profile_type/profile_type_view.dart';
 import 'package:mekaaz/view/profile_view/account_view.dart';
 import 'package:mekaaz/view/profile_view/terms_and_condition_view.dart';
-
-import '../view/BottomNavBar/bottom_nav_bar.dart';
+import 'package:mekaaz/view/splash_screen_one.dart';
 
 import '../view/appointments_view/appointment_done.dart';
-
+import '../view/appointments_view/appointments_view.dart';
+import '../view/bottom_nav_bar/bottom_nav_bar.dart';
+import '../view/medicine_screens.dart/medicine_detail_view.dart';
 import '../view/profile_completion_view/add_disease.view.dart';
 import '../view/profile_view/user_profile_view.dart';
 import '../view/subscription_view/card_detail_second_view.dart';
@@ -28,15 +29,16 @@ import '../view/subscription_view/verification_done.dart';
 
 class AppRouter {
   static Map<String, WidgetBuilder> routes = {
-    '/': (context) => const BottomNavBar(),
+    '/': (context) => const SplashScreenOne(),
     '/onboardingScreen': (context) => const OnboardingScreen(),
     '/splashTwoScreen': (context) => const SplashTwoScreen(),
+    '/bottomNavBar': (context) => const BottomNavBar(),
+    '/contactScreen': (context) => ContactScreen(),
     '/verificationCodeScreen': (context) => VerificationCodeScreen(),
     '/emailScreenOne': (context) => EmailScreenOne(),
     '/invitationPasswordresetScreen': (context) =>
         InvitationPasswordresetScreen(),
     '/profileTypeView': (context) => const ProfileTypeView(),
-    '/contactScreen': (context) => ContactScreen(),
     '/notificationView': (context) => const NotificationView(),
     '/verificationcode': (context) => VerificationCodeScreen(),
     '/forgetPassword': (context) => ForgetPasswordScreen(),
@@ -51,11 +53,16 @@ class AppRouter {
     '/bottomNavBar': (context) => const BottomNavBar(),
     '/userProfileView': (context) => const UserProfileView(),
     '/accountView': (context) => AccountView(),
+    // ignore: equal_keys_in_map
+    '/notificationView': (context) => const NotificationView(),
     '/subscriptionView': (context) => const SubscriptionView(),
     '/cardDetailView': (context) => const CardDetailView(),
     '/cardDetailSecondView': (context) => CardDetailSecondView(),
     '/verificationDone': (context) => const VerificationDone(),
     '/termsAndConditionView': (context) => const TermsAndConditionView(),
+    '/medicineDetailsScreen': (context) => MedicineDetailsScreen(),
+    '/addedDiseaseView': (context) => const AddedDiseaseView(),
+    '/AppointmentView': (context) => const AppointmentView(),
   };
 
   // Method for pushing a new route
