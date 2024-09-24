@@ -15,7 +15,6 @@ import 'package:mekaaz/view/profile_type/profile_type_view.dart';
 import 'package:mekaaz/view/profile_view/account_view.dart';
 import 'package:mekaaz/view/profile_view/terms_and_condition_view.dart';
 import 'package:mekaaz/view/splash_screen_one.dart';
-
 import '../view/appointments_view/appointment_done.dart';
 import '../view/appointments_view/appointments_view.dart';
 import '../view/bottom_nav_bar/bottom_nav_bar.dart';
@@ -50,11 +49,8 @@ class AppRouter {
     '/addDiseaseTwoView': (context) => const AddDiseaseTwoView(),
     '/addCaretakerView': (context) => AddCaretakerView(),
     '/invitationSentView': (context) => const InvitationSentView(),
-    '/bottomNavBar': (context) => const BottomNavBar(),
     '/userProfileView': (context) => const UserProfileView(),
     '/accountView': (context) => AccountView(),
-    // ignore: equal_keys_in_map
-    '/notificationView': (context) => const NotificationView(),
     '/subscriptionView': (context) => const SubscriptionView(),
     '/cardDetailView': (context) => const CardDetailView(),
     '/cardDetailSecondView': (context) => CardDetailSecondView(),
