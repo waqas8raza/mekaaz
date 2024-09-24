@@ -9,7 +9,6 @@ import '../../widgets/custom_calender.dart';
 import '../../widgets/tabs_medicine.dart/appoinment.dart';
 import '../../widgets/tabs_medicine.dart/device_tab.dart';
 
-
 class MainBottomScreen extends StatefulWidget {
   const MainBottomScreen({super.key});
 
@@ -18,7 +17,7 @@ class MainBottomScreen extends StatefulWidget {
 }
 
 class _MainBottomScreenState extends State<MainBottomScreen> {
-  bool isCaretakerAdded = true; // Boolean flag to track caretaker status
+  bool isCaretakerAdded = true; // Track caretaker status
 
   @override
   Widget build(BuildContext context) {
@@ -28,37 +27,31 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
         onProfilePressed: () {
           AppRouter.navigateTo(context, '/userProfileView');
         },
-        title: 'App Title',
+        title: 'Savannah Nguyen',
         profileImageUrl: 'https://via.placeholder.com/150',
-        onNotificationPressed: () {},
+        onNotificationPressed: () {
+          AppRouter.navigateTo(context, '/notificationView');
+        },
       ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Column(
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  weekDayCalender(context),
-                ],
-              ),
+              weekDayCalender(context),
               const Divider(),
               const SizedBox(height: 20),
               if (isCaretakerAdded)
-                // If caretaker is added, show the tabs
                 Expanded(
                   child: DefaultTabController(
                     length: 3,
                     child: Column(
                       children: [
                         const TabBar(
+                          indicatorWeight: 1.4,
+                          indicatorSize: TabBarIndicatorSize.tab,
                           labelStyle: TextStyle(
-                            fontSize:
-                                14, // Increase the font size for selected tab
-                            fontWeight: FontWeight
-                                .bold, // Optional: Add bold weight for emphasis
-                          ),
+                              fontSize: 14, fontWeight: FontWeight.bold),
                           labelColor: AppColors.primaryColor,
                           tabs: [
                             Tab(text: "Medicine"),
@@ -81,12 +74,12 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
                               ),
                               const DeviceManagementTab(),
                               GestureDetector(
-                                  onTap: () {
-                                    AppRouter.navigateTo(
-                                        context, '/AppointmentView');
-                                  },
-                                  child:
-                                      const AppointmentCards(isVirtual: false))
+                                onTap: () {
+                                  AppRouter.navigateTo(
+                                      context, '/AppointmentView');
+                                },
+                                child: const AppointmentCards(isVirtual: false),
+                              ),
                             ],
                           ),
                         ),
@@ -95,7 +88,6 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
                   ),
                 )
               else
-                // If no caretaker is added, show the message
                 RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
@@ -148,7 +140,6 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
         child: FloatingActionButton(
           shape: const CircleBorder(),
           onPressed: () {
-            // Handle caretaker addition on FAB press
             setState(() {
               isCaretakerAdded =
                   !isCaretakerAdded; // Toggle caretaker status for demo

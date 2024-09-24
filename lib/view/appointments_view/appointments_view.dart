@@ -70,10 +70,12 @@ class _AppointmentViewState extends State<AppointmentView>
               ],
             ),
           ),
-          // const SizedBox(height: 10),
-          const Center(
-            child: AppointmentCard(
-              isVirtual: false,
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Center(
+              child: AppointmentCard(
+                isVirtual: false,
+              ),
             ),
           ),
         ],

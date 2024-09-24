@@ -15,14 +15,10 @@ import 'package:mekaaz/view/profile_type/profile_type_view.dart';
 import 'package:mekaaz/view/profile_view/account_view.dart';
 import 'package:mekaaz/view/profile_view/terms_and_condition_view.dart';
 import 'package:mekaaz/view/splash_screen_one.dart';
-import 'package:mekaaz/widgets/tabs_medicine.dart/medicine_card.dart';
 
-import '../view/BottomNavBar/bottom_nav_bar.dart';
-
-import '../view/add_medicine/add_detail_view.dart';
 import '../view/appointments_view/appointment_done.dart';
-
 import '../view/appointments_view/appointments_view.dart';
+import '../view/bottom_nav_bar/bottom_nav_bar.dart';
 import '../view/medicine_screens.dart/medicine_detail_view.dart';
 import '../view/profile_completion_view/add_disease.view.dart';
 import '../view/profile_view/user_profile_view.dart';
@@ -33,9 +29,10 @@ import '../view/subscription_view/verification_done.dart';
 
 class AppRouter {
   static Map<String, WidgetBuilder> routes = {
-    '/SplashScreenOne': (context) => const SplashScreenOne(),
+    '/': (context) => const SplashScreenOne(),
     '/onboardingScreen': (context) => const OnboardingScreen(),
     '/splashTwoScreen': (context) => const SplashTwoScreen(),
+    '/bottomNavBar': (context) => const BottomNavBar(),
     '/contactScreen': (context) => ContactScreen(),
     '/verificationCodeScreen': (context) => VerificationCodeScreen(),
     '/emailScreenOne': (context) => EmailScreenOne(),
@@ -56,12 +53,15 @@ class AppRouter {
     '/bottomNavBar': (context) => const BottomNavBar(),
     '/userProfileView': (context) => const UserProfileView(),
     '/accountView': (context) => AccountView(),
+    // ignore: equal_keys_in_map
+    '/notificationView': (context) => const NotificationView(),
     '/subscriptionView': (context) => const SubscriptionView(),
     '/cardDetailView': (context) => const CardDetailView(),
     '/cardDetailSecondView': (context) => CardDetailSecondView(),
     '/verificationDone': (context) => const VerificationDone(),
     '/termsAndConditionView': (context) => const TermsAndConditionView(),
-    '/MedicineDetailsScreen': (context) => MedicineDetailsScreen(),
+    '/medicineDetailsScreen': (context) => MedicineDetailsScreen(),
+    '/addedDiseaseView': (context) => const AddedDiseaseView(),
     '/AppointmentView': (context) => const AppointmentView(),
   };
 
