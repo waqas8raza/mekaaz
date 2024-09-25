@@ -35,8 +35,7 @@ class AppRouter {
     '/contactScreen': (context) => ContactScreen(),
     '/verificationCodeScreen': (context) => VerificationCodeScreen(),
     '/emailScreenOne': (context) => EmailScreenOne(),
-    '/invitationPasswordresetScreen': (context) =>
-        InvitationPasswordresetScreen(),
+    '/invitationPasswordresetScreen': (context) => InvitationPasswordresetScreen(),
     '/profileTypeView': (context) => const ProfileTypeView(),
     '/notificationView': (context) => const NotificationView(),
     '/verificationcode': (context) => VerificationCodeScreen(),

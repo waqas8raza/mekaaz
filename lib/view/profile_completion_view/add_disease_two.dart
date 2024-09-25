@@ -20,6 +20,7 @@ class AddDiseaseTwoView extends ConsumerStatefulWidget {
   const AddDiseaseTwoView({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _AddDiseaseTwoViewState createState() => _AddDiseaseTwoViewState();
 }
 
@@ -107,7 +108,7 @@ class _AddDiseaseTwoViewState extends ConsumerState<AddDiseaseTwoView> {
                   icon: const Icon(Icons.calendar_month),
                   onPressed: () async {
                     DateTime? pickedDate = await showDatePicker(
-                      context: context,
+                      context: context, 
                       initialDate: DateTime.now(),
                       firstDate: DateTime(1900),
                       lastDate: DateTime.now(),
