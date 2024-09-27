@@ -10,26 +10,45 @@ import 'package:mekaaz/widgets/round_button.dart';
 import '../../app_router/app_router.dart';
 import '../../widgets/custom_textfield.dart';
 
+// Provider to store the list of diseases
+final diseaseListProvider =
+    StateProvider<List<Map<String, String>>>((ref) => []);
+
 final selectedGenderProvider = StateProvider<String>((ref) => '');
 
 class AddDiseaseTwoView extends ConsumerStatefulWidget {
   const AddDiseaseTwoView({super.key});
 
   @override
-  _AddDiseaseViewState createState() => _AddDiseaseViewState();
+  // ignore: library_private_types_in_public_api
+  _AddDiseaseTwoViewState createState() => _AddDiseaseTwoViewState();
 }
 
-class _AddDiseaseViewState extends ConsumerState<AddDiseaseTwoView> {
+class _AddDiseaseTwoViewState extends ConsumerState<AddDiseaseTwoView> {
   final diseaseController = TextEditingController();
-  final dateController = TextEditingController();
   final dobController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
+
+  void _addDisease() {
+    if (formKey.currentState!.validate()) {
+      final disease = {
+        'disease': diseaseController.text,
+        'date': dobController.text,
+      };
+
+      ref.read(diseaseListProvider.notifier).state = [
+        ...ref.read(diseaseListProvider),
+        disease
+      ];
+
+      diseaseController.clear();
+      dobController.clear();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final selectedGender =
-        ref.watch(selectedGenderProvider); // Watch the selected gender
-
     return Scaffold(
       appBar: AppBar(
         title: CustomText(
@@ -37,6 +56,19 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseTwoView> {
           fontSize: 22,
           fontWeight: FontWeight.w700,
         ),
+        actions: [
+          IconButton(
+            icon: CustomText(
+              text: 'See Disease',
+              fontSize: 13,
+              color: AppColors.redColor,
+              fontWeight: FontWeight.w300,
+            ),
+            onPressed: () {
+              AppRouter.navigateTo(context, '/addedDiseaseView');
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -57,7 +89,7 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseTwoView> {
                 fontSize: 18,
               ),
               CustomTextField(
-                hintText: 'Disease ',
+                hintText: 'Disease',
                 controller: diseaseController,
                 validator:
                     RequiredValidator(errorText: 'This field is required'),
@@ -76,7 +108,7 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseTwoView> {
                   icon: const Icon(Icons.calendar_month),
                   onPressed: () async {
                     DateTime? pickedDate = await showDatePicker(
-                      context: context,
+                      context: context, 
                       initialDate: DateTime.now(),
                       firstDate: DateTime(1900),
                       lastDate: DateTime.now(),
@@ -91,18 +123,60 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseTwoView> {
               const SizedBox(height: 30),
               const Spacer(),
               RoundButton(
-                  containerColor: Colors.transparent,
-                  borderColor: AppColors.primaryColor,
-                  titleColor: AppColors.primaryColor,
-                  onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      AppRouter.navigateTo(context, '/addCaretakerView');
-                    }
-                  },
-                  title: 'Add More')
+                containerColor: Colors.transparent,
+                borderColor: AppColors.primaryColor,
+                titleColor: AppColors.primaryColor,
+                onPressed: _addDisease,
+                title: 'Add More',
+              ),
+              const SizedBox(height: 30),
+              RoundButton(
+                containerColor: AppColors.primaryColor,
+                titleColor: Colors.white,
+                onPressed: () {
+                  if (ref.read(diseaseListProvider).isNotEmpty) {
+                    AppRouter.navigateTo(context, '/addCaretakerView');
+                  }
+                },
+                title: 'Next',
+              ),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+//
+
+class AddedDiseaseView extends ConsumerWidget {
+  const AddedDiseaseView({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final diseases = ref.watch(diseaseListProvider);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Added Diseases'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: diseases.isEmpty
+            ? const Center(
+                child: Text('No diseases added'),
+              )
+            : ListView.builder(
+                itemCount: diseases.length,
+                itemBuilder: (context, index) {
+                  final disease = diseases[index];
+                  return ListTile(
+                    title: Text(disease['disease'] ?? ''),
+                    subtitle: Text('Date: ${disease['date']}'),
+                  );
+                },
+              ),
       ),
     );
   }
