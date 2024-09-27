@@ -1,8 +1,8 @@
-import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:mekaaz/app_router/app_router.dart';
 import 'package:mekaaz/theme/app_colors/app_colors.dart';
+import 'package:mekaaz/widgets/medicine_card.dart';
 
 import '../../widgets/custom_appbar.dart';
 import '../../widgets/custom_calender.dart';
@@ -15,11 +15,13 @@ class MainBottomScreen extends StatefulWidget {
 }
 
 class _MainBottomScreenState extends State<MainBottomScreen> {
+  bool isCaretakerAdded = true; // Boolean flag to track caretaker status
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        onPressed: () {
+        onProfilePressed: () {
           AppRouter.navigateTo(context, '/userProfileView');
         },
         title: 'App Title',
@@ -34,55 +36,85 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  EasyDateTimeLine(
-                    initialDate: DateTime.now(),
-                    activeColor: const Color(0xff37306B),
-                    dayProps: const EasyDayProps(
-                   
-                      // ignore: deprecated_member_use
-                      activeBorderRadius: 32.0,
-                     
-                      // ignore: deprecated_member_use
-                      inactiveBorderRadius: 32.0,
-                    ),
-                  ),
+                  weekDayCalender(context),
                 ],
               ),
               const Divider(),
-              const SizedBox(
-                height: 200,
-              ),
-              RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  style:
-                      const TextStyle(fontSize: 18, color: AppColors.skipColor),
-                  children: [
-                    const TextSpan(
-                      text: "No Caretaker added Yet\n",
-                      style: TextStyle(
-                          color: AppColors.primaryColor, fontSize: 18),
+              const SizedBox(height: 20),
+              if (isCaretakerAdded)
+                // If caretaker is added, show the tabs
+                const Expanded(
+                  child: DefaultTabController(
+                    length: 3,
+                    child: Column(
+                      children: [
+                        TabBar(
+                          labelStyle: TextStyle(
+                            fontSize:
+                                14, // Increase the font size for selected tab
+                            fontWeight: FontWeight
+                                .bold, // Optional: Add bold weight for emphasis
+                          ),
+                          labelColor: AppColors.primaryColor,
+                          tabs: [
+                            Tab(text: "Medicine"),
+                            Tab(text: "Devices"),
+                            Tab(text: "Appointments"),
+                          ],
+                        ),
+                        Expanded(
+                          child: TabBarView(
+                            children: [
+                              MedicineCard(
+                                dosage: 'af',
+                                icon: Icons.add_ic_call_outlined,
+                                medicineName: 'asda',
+                                time: 'asd',
+                                dosageUnit: 'dad',
+                              ),
+                              Center(child: Text('Content for Tab 2')),
+                              Center(child: Text('Content for Tab 3')),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                    const TextSpan(
-                      text: ' Please add the care taker from ',
-                      style:
-                          TextStyle(color: AppColors.blackColor, fontSize: 16),
-                    ),
-                    TextSpan(
-                      text: 'here ',
-                      style: const TextStyle(
-                        decoration: TextDecoration.underline,
-                        color: AppColors.primaryColor,
-                        fontWeight: FontWeight.bold,
+                  ),
+                )
+              else
+                // If no caretaker is added, show the message
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    style: const TextStyle(
+                        fontSize: 18, color: AppColors.skipColor),
+                    children: [
+                      const TextSpan(
+                        text: "No Caretaker added Yet\n",
+                        style: TextStyle(
+                            color: AppColors.primaryColor, fontSize: 18),
                       ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          // Action when the word is clicked
-                        },
-                    ),
-                  ],
+                      const TextSpan(
+                        text: ' Please add the caretaker from ',
+                        style: TextStyle(
+                            color: AppColors.blackColor, fontSize: 16),
+                      ),
+                      TextSpan(
+                        text: 'here ',
+                        style: const TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: AppColors.primaryColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            // Handle caretaker addition logic here
+                          },
+                      ),
+                    ],
+                  ),
                 ),
-              ),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -102,7 +134,13 @@ class _MainBottomScreenState extends State<MainBottomScreen> {
         ),
         child: FloatingActionButton(
           shape: const CircleBorder(),
-          onPressed: () {},
+          onPressed: () {
+            // Handle caretaker addition on FAB press
+            setState(() {
+              isCaretakerAdded =
+                  !isCaretakerAdded; // Toggle caretaker status for demo
+            });
+          },
           backgroundColor: Colors.red,
           child: const Icon(Icons.add),
         ),

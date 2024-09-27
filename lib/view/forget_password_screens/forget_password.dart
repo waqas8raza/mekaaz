@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mekaaz/app_router/app_router.dart';
-import 'package:mekaaz/widgets/custom_button.dart';
 import 'package:mekaaz/widgets/custom_textfield.dart';
+import 'package:mekaaz/widgets/round_button.dart';
 
 import '../../theme/app_colors/app_colors.dart';
 import '../../widgets/custom_text.dart';
@@ -74,22 +74,20 @@ class ForgetPasswordScreen extends StatelessWidget {
                 child: Text('Email'),
               ),
               CustomTextField(hintText: '', controller: emailController),
-              const SizedBox(
-                height: 250,
-              ),
-              CustomButton(
-                width: 320,
-                onPressed: () {
-                  AppRouter.navigateTo(context, 'verificationcode');
-                },
-                widget: CustomText(
-                  text: 'Verify Otp',
-                  color: AppColors.blackColor,
-                  fontSize: 18,
-                ),
-              )
             ],
           ),
+        ),
+      ),
+      bottomSheet: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+        child: RoundButton(
+          titleColor: AppColors.blackColor,
+          containerColor: Colors.transparent,
+          onPressed: () {
+            AppRouter.navigateTo(context, '/verificationCodeScreen');
+          },
+          title: 'Verify OTP',
+          borderColor: AppColors.blackColor,
         ),
       ),
     );

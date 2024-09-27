@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_colors/app_colors.dart';
 
-Widget weekDayOne(BuildContext context) {
+Widget weekDayCalender(BuildContext context) {
   DateTime? selectedDate;
   return SizedBox(
     width: double.maxFinite,

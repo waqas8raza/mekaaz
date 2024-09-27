@@ -5,6 +5,7 @@ import 'package:mekaaz/theme/app_colors/app_colors.dart';
 // ignore: must_be_immutable
 class CustomTextField extends StatelessWidget {
   final String? hintText;
+  final int? maxLines;
   String? Function(String?)? validator;
 
   final TextEditingController controller;
@@ -17,6 +18,7 @@ class CustomTextField extends StatelessWidget {
     super.key,
     this.validator,
     this.hintText,
+    this.maxLines,
     required this.controller,
     this.obscureText = false,
     this.suffixButton,
@@ -26,6 +28,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLength: maxLines,
       validator: validator,
       keyboardType: keyboardType,
       cursorColor: AppColors.blackColor,

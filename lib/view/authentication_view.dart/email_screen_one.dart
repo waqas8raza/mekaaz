@@ -86,7 +86,7 @@ class EmailScreenOne extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  AppRouter.navigateTo(context, 'ForgetPasswordScreen');
+                  AppRouter.navigateTo(context, '/forgetPasswordScreen');
                 },
                 child: Align(
                   alignment: Alignment.centerRight,
