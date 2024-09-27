@@ -20,7 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leading: Padding(
         padding: const EdgeInsets.all(5.0),
-        child: InkWell(
+        child: GestureDetector(
           onTap: onProfilePressed,
           child: CircleAvatar(
             backgroundImage: NetworkImage(profileImageUrl),

@@ -71,7 +71,7 @@ class ProfileTypeView extends ConsumerWidget {
                           ),
                           Image.asset(
                             'assets/images/patient.png',
-                            height: 80,
+                            height: 65,
                           ),
                           const Text(
                             'Patient',
@@ -111,7 +111,7 @@ class ProfileTypeView extends ConsumerWidget {
                           ),
                           Image.asset(
                             'assets/images/caretaker.png',
-                            height: 70,
+                            height: 55,
                           ),
                           const Padding(
                             padding: EdgeInsets.only(top: 10.0),
@@ -141,7 +141,10 @@ class ProfileTypeView extends ConsumerWidget {
                   }
                 },
                 title: 'Next',
-              )
+              ),
+              const SizedBox(
+                height: 20,
+              ),
             ],
           ),
         ),
