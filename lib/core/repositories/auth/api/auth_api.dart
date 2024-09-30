@@ -8,5 +8,5 @@ part 'auth_api.g.dart';
 abstract interface class AuthApi {
   factory AuthApi(Dio client) => _AuthApi(client);
 
- 
+
 }

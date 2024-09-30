@@ -10,7 +10,7 @@ part of 'auth_api.dart';
 
 class _AuthApi implements AuthApi {
   _AuthApi(
-    this._dio, {
+    this._dio,{
     this.baseUrl,
     this.errorLogger,
   }) {

@@ -9,7 +9,7 @@ class ApiHelper {
 
   static final client = Dio(
     BaseOptions(
-      headers: {"Content-Type": "application/json"},
+      headers: {"Content-Type":"application/json"},
       baseUrl: apiUrl,
       connectTimeout: const Duration(seconds: 120000),
       receiveTimeout: const Duration(seconds: 120000),
