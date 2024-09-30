@@ -5,7 +5,7 @@ import 'package:mekaaz/core/client/api_interceptor.dart';
 
 class ApiHelper {
 
-   static const String apiUrl = 'https://mystudioitsolutions.com/api/';
+   static const String apiUrl = 'https://mekaaz.pythonanywhere.com/api/';
 
   static final client = Dio(
     BaseOptions(
