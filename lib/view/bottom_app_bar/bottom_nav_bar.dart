@@ -4,7 +4,6 @@ import 'package:mekaaz/theme/app_colors/app_colors.dart';
 import 'package:mekaaz/view/appointments_view/appointments_detail_view.dart';
 import 'package:mekaaz/view/appointments_view/appointments_view.dart';
 import 'package:mekaaz/view/profile_view/account_view.dart';
-
 import '../medicine_screens.dart/main_medicine_screen.dart';
 import '../profile_type/profile_type_view.dart';
 
