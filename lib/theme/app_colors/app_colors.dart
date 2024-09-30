@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 
 class AppColors {
+
   static const primaryColor = Color(0xFF86705D);
   static const primaryLightColor = Color(0xFFFFFCF9);
   static const secondoryColor = Color(0xFFEFE7DD);
@@ -16,4 +17,5 @@ class AppColors {
   static const invitationPasswordresetColor = Color(0xFF86705d);
   //bottom bar color
   static const bottombarColor1=Color(0xFFD3CBC4);
+  
 }

@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mekaaz/core/client/api_interceptor.dart';
 
 
-class ApiHelper {
+class ApiHelper{
 
    static const String apiUrl = 'https://mystudioitsolutions.com/api/';
 
