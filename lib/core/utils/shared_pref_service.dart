@@ -5,7 +5,7 @@ abstract class SharedPrefKey {
 }
 
 class SharedPrefService {
-  static const String keyPrefix = 'Suraj Production';
+  static const String keyPrefix = 'Meekaz';
   static SharedPrefService? _instance;
   static SharedPreferences? _pref;
 
