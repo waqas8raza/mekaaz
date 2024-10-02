@@ -18,7 +18,7 @@ Map<String, dynamic> _$CompleteProfileResponseToJson(
         CompleteProfileResponse instance) =>
     <String, dynamic>{
       'message': instance.message,
-      'user': instance.user,
+      'user': instance.user.toJson(),
       'statusCode': instance.statusCode,
     };
 
@@ -27,9 +27,11 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       bloodGroup: json['bloodGroup'] as String,
       dob: json['dob'] as String,
       gender: json['gender'] as String,
-      disease: json['disease'] as String,
-      profileComplete: json['profileComplete'] as bool,
       address: json['address'] as String,
+      diseases: (json['diseases'] as List<dynamic>)
+          .map((e) => Disease.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      profileComplete: json['profileComplete'] as bool,
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
@@ -38,6 +40,16 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'dob': instance.dob,
       'gender': instance.gender,
       'address': instance.address,
-      'disease': instance.disease,
+      'diseases': instance.diseases.map((e) => e.toJson()).toList(),
       'profileComplete': instance.profileComplete,
+    };
+
+Disease _$DiseaseFromJson(Map<String, dynamic> json) => Disease(
+      name: json['name'] as String,
+      startDate: json['start_date'] as String,
+    );
+
+Map<String, dynamic> _$DiseaseToJson(Disease instance) => <String, dynamic>{
+      'name': instance.name,
+      'start_date': instance.startDate,
     };

@@ -9,7 +9,7 @@ class CompleteProfileModel {
   final String dob;
   final String gender;
   final String address;
-  final List<Disease> diseases;
+  final List<Disease> diseases; // List of Disease objects
 
   CompleteProfileModel({
     required this.name,
@@ -17,7 +17,7 @@ class CompleteProfileModel {
     required this.dob,
     required this.gender,
     required this.address,
-    required this.diseases,
+    required this.diseases, // Handle list of diseases
   });
 
   // Deserialize JSON to Dart object
@@ -31,7 +31,7 @@ class CompleteProfileModel {
 @JsonSerializable()
 class Disease {
   final String name;
-  @JsonKey(name: 'start_date')
+  @JsonKey(name: 'start_date') // Maps 'start_date' in JSON to startDate
   final String startDate;
 
   Disease({

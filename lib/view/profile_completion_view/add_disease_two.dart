@@ -177,7 +177,7 @@ class AddedDisease extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final diseases = ref.watch(diseaseListProvider);
+    // final diseases = ref.watch(diseaseListProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -185,20 +185,16 @@ class AddedDisease extends ConsumerWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: diseases.isEmpty
-            ? const Center(
-                child: Text('No diseases added'),
-              )
-            : ListView.builder(
-                itemCount: diseases.length,
-                itemBuilder: (context, index) {
-                  final disease = diseases[index];
-                  return ListTile(
-                    title: Text(disease['disease'] ?? ''),
-                    subtitle: Text('Date: ${disease['date']}'),
-                  );
-                },
-              ),
+        child: ListView.builder(
+          itemCount: diseases!.length,
+          itemBuilder: (context, index) {
+            final disease = diseases![index];
+            return ListTile(
+              title: Text(disease.name),
+              subtitle: Text('Date: ${disease.startDate}'),
+            );
+          },
+        ),
       ),
     );
   }

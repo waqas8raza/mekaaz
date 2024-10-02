@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'complete_profile_response.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class CompleteProfileResponse {
   final String message;
   final User user;
@@ -22,14 +22,14 @@ class CompleteProfileResponse {
   Map<String, dynamic> toJson() => _$CompleteProfileResponseToJson(this);
 }
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class User {
   final String name;
   final String bloodGroup;
   final String dob;
   final String gender;
   final String address;
-  final String disease;
+  final List<Disease> diseases; // Changed to a list of Disease objects
   final bool profileComplete;
 
   User({
@@ -37,9 +37,9 @@ class User {
     required this.bloodGroup,
     required this.dob,
     required this.gender,
-    required this.disease,
+    required this.address,
+    required this.diseases, // Now handling a list of diseases
     required this.profileComplete,
-    required this.address
   });
 
   // Factory method for creating a new instance from a map
@@ -47,4 +47,22 @@ class User {
 
   // Method for converting an instance to a map
   Map<String, dynamic> toJson() => _$UserToJson(this);
+}
+
+@JsonSerializable()
+class Disease {
+  final String name;
+  @JsonKey(name: 'start_date') // Map 'start_date' in JSON to startDate in Dart
+  final String startDate;
+
+  Disease({
+    required this.name,
+    required this.startDate,
+  });
+
+  // Factory method for creating a new instance from a map
+  factory Disease.fromJson(Map<String, dynamic> json) => _$DiseaseFromJson(json);
+
+  // Method for converting an instance to a map
+  Map<String, dynamic> toJson() => _$DiseaseToJson(this);
 }
