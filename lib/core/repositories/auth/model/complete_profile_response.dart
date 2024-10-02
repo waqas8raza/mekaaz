@@ -28,6 +28,7 @@ class User {
   final String bloodGroup;
   final String dob;
   final String gender;
+  final String address;
   final String disease;
   final bool profileComplete;
 
@@ -38,6 +39,7 @@ class User {
     required this.gender,
     required this.disease,
     required this.profileComplete,
+    required this.address
   });
 
   // Factory method for creating a new instance from a map

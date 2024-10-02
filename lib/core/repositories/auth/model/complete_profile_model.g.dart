@@ -32,10 +32,10 @@ Map<String, dynamic> _$CompleteProfileModelToJson(
 
 Disease _$DiseaseFromJson(Map<String, dynamic> json) => Disease(
       name: json['name'] as String,
-      startDate: json['startDate'] as String,
+      startDate: json['start_date'] as String,
     );
 
 Map<String, dynamic> _$DiseaseToJson(Disease instance) => <String, dynamic>{
       'name': instance.name,
-      'startDate': instance.startDate,
+      'start_date': instance.startDate,
     };

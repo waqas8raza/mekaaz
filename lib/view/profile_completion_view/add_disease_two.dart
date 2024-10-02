@@ -1,13 +1,17 @@
 // ignore_for_file: implicit_call_tearoffs
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:mekaaz/core/repositories/auth/model/complete_profile_model.dart';
+import 'package:mekaaz/core/repositories/auth/services/auth_repository.dart';
+
 import 'package:mekaaz/theme/app_colors/app_colors.dart';
 import 'package:mekaaz/widgets/custom_text.dart';
 import 'package:mekaaz/widgets/round_button.dart';
 
-import '../../app_router/app_router.dart';
 import '../../widgets/custom_textfield.dart';
 
 // Provider to store the list of diseases
@@ -17,7 +21,8 @@ final diseaseListProvider =
 final selectedGenderProvider = StateProvider<String>((ref) => '');
 
 class AddDiseaseTwoView extends ConsumerStatefulWidget {
-  const AddDiseaseTwoView({super.key});
+  final CompleteProfileModel? completeProfileModel;
+  const AddDiseaseTwoView({super.key, this.completeProfileModel});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -26,29 +31,31 @@ class AddDiseaseTwoView extends ConsumerStatefulWidget {
 
 class _AddDiseaseTwoViewState extends ConsumerState<AddDiseaseTwoView> {
   final diseaseController = TextEditingController();
-  final dobController = TextEditingController();
+  final startDateController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
+  List<Disease> diseasesList = [];
 
-  void _addDisease() {
+  _addDisease() {
     if (formKey.currentState!.validate()) {
-      final disease = {
-        'disease': diseaseController.text,
-        'date': dobController.text,
-      };
+      final disease = Disease(
+        name: diseaseController.text,
+        startDate: startDateController.text,
+      );
 
-      ref.read(diseaseListProvider.notifier).state = [
-        ...ref.read(diseaseListProvider),
-        disease
-      ];
+      setState(() {
+        diseasesList.add(disease);
+      });
 
+      // Clear the input fields after adding
       diseaseController.clear();
-      dobController.clear();
+      startDateController.clear();
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    log(widget.completeProfileModel!.address);
     return Scaffold(
       appBar: AppBar(
         title: CustomText(
@@ -65,7 +72,9 @@ class _AddDiseaseTwoViewState extends ConsumerState<AddDiseaseTwoView> {
               fontWeight: FontWeight.w300,
             ),
             onPressed: () {
-              AppRouter.navigateTo(context, '/addedDiseaseView');
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => AddedDisease(diseases: diseasesList),
+              ));
             },
           ),
         ],
@@ -103,18 +112,18 @@ class _AddDiseaseTwoViewState extends ConsumerState<AddDiseaseTwoView> {
                 validator:
                     RequiredValidator(errorText: 'This field is required'),
                 hintText: '10/12/2020',
-                controller: dobController,
+                controller: startDateController,
                 suffixButton: IconButton(
                   icon: const Icon(Icons.calendar_month),
                   onPressed: () async {
                     DateTime? pickedDate = await showDatePicker(
-                      context: context, 
+                      context: context,
                       initialDate: DateTime.now(),
                       firstDate: DateTime(1900),
                       lastDate: DateTime.now(),
                     );
                     if (pickedDate != null) {
-                      dobController.text =
+                      startDateController.text =
                           "${pickedDate.toLocal()}".split(' ')[0];
                     }
                   },
@@ -133,9 +142,21 @@ class _AddDiseaseTwoViewState extends ConsumerState<AddDiseaseTwoView> {
               RoundButton(
                 containerColor: AppColors.primaryColor,
                 titleColor: Colors.white,
-                onPressed: () {
-                  if (ref.read(diseaseListProvider).isNotEmpty) {
-                    AppRouter.navigateTo(context, '/addCaretakerView');
+                onPressed: () async {
+                  final res = await ref
+                      .read(authRepositoryProvider)
+                      .completeProfile(
+                        CompleteProfileModel(
+                            name: widget.completeProfileModel!.name,
+                            bloodGroup: widget.completeProfileModel!.bloodGroup,
+                            dob: widget.completeProfileModel!.dob,
+                            gender: widget.completeProfileModel!.gender,
+                            address: widget.completeProfileModel!.address,
+                            diseases: diseasesList),
+                      );
+
+                  if (res.statusCode == 200) {
+                    log('Profile completed successfully');
                   }
                 },
                 title: 'Next',
@@ -150,8 +171,9 @@ class _AddDiseaseTwoViewState extends ConsumerState<AddDiseaseTwoView> {
 
 //
 
-class AddedDiseaseView extends ConsumerWidget {
-  const AddedDiseaseView({super.key});
+class AddedDisease extends ConsumerWidget {
+  final List<Disease>? diseases;
+  const AddedDisease({super.key, this.diseases});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

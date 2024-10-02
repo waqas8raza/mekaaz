@@ -29,6 +29,7 @@ User _$UserFromJson(Map<String, dynamic> json) => User(
       gender: json['gender'] as String,
       disease: json['disease'] as String,
       profileComplete: json['profileComplete'] as bool,
+      address: json['address'] as String,
     );
 
 Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
@@ -36,6 +37,7 @@ Map<String, dynamic> _$UserToJson(User instance) => <String, dynamic>{
       'bloodGroup': instance.bloodGroup,
       'dob': instance.dob,
       'gender': instance.gender,
+      'address': instance.address,
       'disease': instance.disease,
       'profileComplete': instance.profileComplete,
     };

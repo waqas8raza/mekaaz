@@ -3,14 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:mekaaz/app_router/app_router.dart';
 import 'package:mekaaz/core/repositories/auth/model/complete_profile_model.dart';
 import 'package:mekaaz/theme/app_colors/app_colors.dart';
+import 'package:mekaaz/view/profile_completion_view/add_disease_two.dart';
 
 import 'package:mekaaz/widgets/custom_text.dart';
 import 'package:mekaaz/widgets/round_button.dart';
 
-import '../../core/repositories/auth/services/complete_profile_repo.dart';
 import '../../widgets/custom_textfield.dart';
 
 final selectedGenderProvider = StateProvider<String>((ref) => '');
@@ -172,19 +171,19 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseView> {
         child: RoundButton(
           onPressed: () async {
             if (formKey.currentState!.validate()) {
-              final response = await ref
-                  .read(completeProfileRepositoryProvider)
-                  .completeProfile(CompleteProfileModel(
-                    name: nameController.text,
-                    bloodGroup: bloodGroupController.text,
-                    dob: dobController.text,
-                    gender: selectedGender, address: addressController.text,
-                    diseases: []
-                  ));
-
-              if (response.statusCode == 200) {
-                AppRouter.replaceWith(context, '/profileTypeView');
-              }
+              final diseaseInfo = CompleteProfileModel(
+                  name: nameController.text,
+                  bloodGroup: bloodGroupController.text,
+                  dob: dobController.text,
+                  gender: selectedGender,
+                  address: addressController.text,
+                  diseases: []);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => AddDiseaseTwoView(
+                            completeProfileModel: diseaseInfo,
+                          )));
             }
           },
           title: 'Done',

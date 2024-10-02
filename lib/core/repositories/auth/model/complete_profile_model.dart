@@ -31,6 +31,7 @@ class CompleteProfileModel {
 @JsonSerializable()
 class Disease {
   final String name;
+  @JsonKey(name: 'start_date')
   final String startDate;
 
   Disease({
