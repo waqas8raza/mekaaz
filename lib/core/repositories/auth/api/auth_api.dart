@@ -4,6 +4,7 @@ import 'package:mekaaz/core/repositories/auth/model/phone_login_response.dart';
 import 'package:mekaaz/core/repositories/auth/model/update_role_response.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../model/complete_profile_response.dart';
 import '../model/login_email_model.dart';
 
 
