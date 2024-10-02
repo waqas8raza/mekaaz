@@ -1,0 +1,210 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:form_field_validator/form_field_validator.dart' as fv;
+
+// Assuming you have a BodyPartNotifier class and provider set up somewhere else
+class BodyPartNotifier extends StateNotifier<String> {
+  BodyPartNotifier() : super('Upper Arm'); // Default body part
+
+  void selectBodyPart(String part) {
+    state = part;
+  }
+}
+
+final bodyPartProvider = StateNotifierProvider<BodyPartNotifier, String>((ref) {
+  return BodyPartNotifier();
+});
+
+// Custom text widget
+class CustomText extends StatelessWidget {
+  final String text;
+  final double fontSize;
+
+  const CustomText({required this.text, required this.fontSize, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(fontSize: fontSize),
+    );
+  }
+}
+
+// Custom text field widget
+class CustomTextField extends StatelessWidget {
+  final TextEditingController controller;
+  final FormFieldValidator<String>? validator;
+  final Widget? suffixButton;
+
+  const CustomTextField({
+    required this.controller,
+    this.validator,
+    this.suffixButton,
+    super.key,
+    String? hintText,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: controller,
+      validator: validator,
+      decoration: InputDecoration(
+        suffixIcon: suffixButton,
+        border: const OutlineInputBorder(),
+      ),
+    );
+  }
+}
+
+class AddMedicineScreen extends ConsumerWidget {
+  AddMedicineScreen({super.key});
+
+  final List<String> bodyParts = const [
+    'Upper Arm',
+    'Hip Area',
+    'Buttocks',
+    'Thigh',
+    'Abdomen',
+    'Forearm (Inner Surface of the Forearm Intradermal)',
+    'Upper Back'
+  ];
+
+  final TextEditingController typeController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final selectedBodyPart = ref.watch(bodyPartProvider);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Add Medicine'),
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        elevation: 0,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const CustomText(text: 'Type', fontSize: 18),
+              CustomTextField(
+                validator:
+                    fv.RequiredValidator(errorText: 'This field is required')
+                        .call,
+                controller: typeController,
+                suffixButton: PopupMenuButton<String>(
+                  onSelected: (value) {
+                    typeController.text =
+                        value; // Update typeController with selected value
+                  },
+                  itemBuilder: (BuildContext context) {
+                    return bodyParts.map((String group) {
+                      return PopupMenuItem<String>(
+                        value: group,
+                        child: Text(group),
+                      );
+                    }).toList();
+                  },
+                  icon: const Icon(Icons.keyboard_arrow_down_outlined),
+                ),
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                'Add the medicine with details.',
+                style: TextStyle(fontSize: 16, color: Colors.grey),
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                'Uploaded Medicine pictures',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  _buildUploadButton(),
+                  const SizedBox(width: 8),
+                  _buildMedicineImage(),
+                  const SizedBox(width: 8),
+                  _buildMedicineImage(),
+                ],
+              ),
+              const SizedBox(height: 24),
+              const Text(
+                'Select the area of body for injection',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              ...bodyParts.map(
+                  (part) => _buildBodyPartOption(part, selectedBodyPart, ref)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  // Build upload button for medicine images
+  Widget _buildUploadButton() {
+    return Container(
+      width: 80,
+      height: 80,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.blue),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: const Center(
+        child: Icon(Icons.add, color: Colors.blue, size: 40),
+      ),
+    );
+  }
+
+  // Build a placeholder medicine image
+  Widget _buildMedicineImage() {
+    return Container(
+      width: 80,
+      height: 80,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.blue),
+        color: Colors.blue[100],
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: const Center(
+        child: Icon(Icons.medical_services, color: Colors.blue, size: 40),
+      ),
+    );
+  }
+
+  // Build a body part option widget with both container and radio clickable
+  Widget _buildBodyPartOption(
+      String bodyPart, String selectedBodyPart, WidgetRef ref) {
+    return GestureDetector(
+      onTap: () {
+        ref.read(bodyPartProvider.notifier).selectBodyPart(bodyPart);
+      },
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 8),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color:
+                selectedBodyPart == bodyPart ? Colors.blue : Colors.grey[300]!,
+          ),
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: ListTile(
+          title: Text(bodyPart),
+          trailing: Radio<String>(
+            value: bodyPart,
+            groupValue: selectedBodyPart,
+            onChanged: (String? value) {
+              ref.read(bodyPartProvider.notifier).selectBodyPart(value!);
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}

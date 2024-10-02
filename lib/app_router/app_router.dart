@@ -34,7 +34,7 @@ class AppRouter {
     '/bottomNavBar': (context) => const BottomNavBar(),
     '/contactScreen': (context) => ContactScreen(),
     '/verificationCodeScreen': (context) => VerificationCodeScreen(),
-    '/emailScreenOne': (context) => EmailScreenOne(),
+    '/emailScreenOne': (context) => const EmailScreenOne(),
     '/invitationPasswordresetScreen': (context) =>
         InvitationPasswordresetScreen(),
     '/profileTypeView': (context) => const ProfileTypeView(),
@@ -46,7 +46,9 @@ class AppRouter {
     '/forgetPasswordScreen': (context) => ForgetPasswordScreen(),
     '/invitationPasswordReset': (context) => InvitationPasswordresetScreen(),
     '/addDiseaseView': (context) => const AddDiseaseView(),
-    '/addDiseaseTwoView': (context) => const AddDiseaseTwoView(),
+    '/addDiseaseTwoView': (context) =>  AddDiseaseTwoView(),
+    '/AddedDisease': (context) => const AddedDisease(),
+
     '/addCaretakerView': (context) => AddCaretakerView(),
     '/invitationSentView': (context) => const InvitationSentView(),
     '/userProfileView': (context) => const UserProfileView(),
@@ -57,7 +59,6 @@ class AppRouter {
     '/verificationDone': (context) => const VerificationDone(),
     '/termsAndConditionView': (context) => const TermsAndConditionView(),
     '/medicineDetailsScreen': (context) => MedicineDetailsScreen(),
-    '/addedDiseaseView': (context) => const AddedDiseaseView(),
     '/AppointmentView': (context) => const AppointmentView(),
   };
 

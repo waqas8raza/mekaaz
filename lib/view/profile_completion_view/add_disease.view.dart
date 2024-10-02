@@ -3,8 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:mekaaz/app_router/app_router.dart';
+import 'package:mekaaz/core/repositories/auth/model/complete_profile_model.dart';
 import 'package:mekaaz/theme/app_colors/app_colors.dart';
+import 'package:mekaaz/view/profile_completion_view/add_disease_two.dart';
+
 import 'package:mekaaz/widgets/custom_text.dart';
 import 'package:mekaaz/widgets/round_button.dart';
 
@@ -167,9 +169,21 @@ class _AddDiseaseViewState extends ConsumerState<AddDiseaseView> {
       bottomSheet: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
         child: RoundButton(
-          onPressed: () {
+          onPressed: () async {
             if (formKey.currentState!.validate()) {
-              AppRouter.navigateTo(context, '/addDiseaseTwoView');
+              final diseaseInfo = CompleteProfileModel(
+                  name: nameController.text,
+                  bloodGroup: bloodGroupController.text,
+                  dob: dobController.text,
+                  gender: selectedGender,
+                  address: addressController.text,
+                  diseases: []);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => AddDiseaseTwoView(
+                            completeProfileModel: diseaseInfo,
+                          )));
             }
           },
           title: 'Done',
