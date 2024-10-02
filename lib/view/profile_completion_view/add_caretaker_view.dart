@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:mekaaz/app_router/app_router.dart';
+import 'package:mekaaz/core/repositories/subscription/model/add_caretaker_model.dart';
+import 'package:mekaaz/core/repositories/subscription/services/subscription_repository.dart';
 import 'package:mekaaz/widgets/round_button.dart';
 
 import '../../theme/app_colors/app_colors.dart';
@@ -172,9 +174,20 @@ class AddCaretakerView extends ConsumerWidget {
         margin: const EdgeInsets.only(bottom: 20),
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: RoundButton(
-            onPressed: () {
+            onPressed: () async {
               if (formKey.currentState!.validate()) {
-                AppRouter.navigateTo(context, '/invitationSentView');
+                final response = await ref
+                    .read(subscriptionRepositoryProvider)
+                    .addCareTaker(AddCaretakerModel(
+                        email: emailController.text,
+                        phoneNumber: contatcControllers.text,
+                        gender: selectedGender,
+                        age: ageController.text,
+                        relationship: relationshipController.text,
+                        averageTime: timeController.text));
+                if (response.statusCode == 200) {
+                  AppRouter.navigateTo(context, '/invitationSentView');
+                }
               }
             },
             title: 'Send Invite'),

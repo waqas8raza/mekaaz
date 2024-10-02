@@ -1,14 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mekaaz/app_router/app_router.dart';
+import 'package:mekaaz/core/repositories/auth/model/login_phone_model.dart';
+import 'package:mekaaz/core/repositories/auth/services/auth_repository.dart';
+import 'package:mekaaz/core/utils/shared_pref_service.dart';
 import 'package:mekaaz/widgets/custom_button.dart';
 import 'package:mekaaz/widgets/custom_text.dart';
 
 import '../../theme/app_colors/app_colors.dart';
 
 // ignore: must_be_immutable
-class VerificationCodeScreen extends StatelessWidget {
-  VerificationCodeScreen({super.key});
+class VerificationCodeScreen extends ConsumerStatefulWidget {
+  // final String number;
+  const VerificationCodeScreen({
+    super.key,
+  });
+
+  @override
+  ConsumerState<VerificationCodeScreen> createState() =>
+      _VerificationCodeScreenState();
+}
+
+class _VerificationCodeScreenState
+    extends ConsumerState<VerificationCodeScreen> {
   TextEditingController contatcController = TextEditingController();
 
   @override
@@ -61,20 +76,23 @@ class VerificationCodeScreen extends StatelessWidget {
               borderColor: AppColors.blackColor,
               //set to true to show as box or false to show as dash
               showFieldAsBox: true,
+
               //runs when a code is typed in
               onCodeChanged: (String code) {
                 //handle validation or checks here
               },
               //runs when every textfield is filled
-              onSubmit: (String verificationCode) {
-                showDialog(
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                        title: const Text("Verification Code"),
-                        content: Text('Code entered is $verificationCode'),
-                      );
-                    });
+              onSubmit: (String verificationCode) async {
+                final response = await ref
+                    .read(authRepositoryProvider)
+                    .phoneLogin(LoginPhoneModel(
+                        phoneNumber: '034992286687',
+                        verificationCode: verificationCode));
+                if (response.statusCode == 200) {
+                  SharedPrefService.saveString(
+                      SharedPrefKey.accessToken, response.token);
+                  AppRouter.navigateTo(context, '/resetPassword');
+                }
               }, // end onSubmit
             ),
             const Spacer(),
@@ -100,8 +118,16 @@ class VerificationCodeScreen extends StatelessWidget {
             CustomButton(
               width: 320,
               color: AppColors.blackColor,
-              onPressed: () {
-                AppRouter.navigateTo(context, '/resetPassword');
+              onPressed: () async {
+                final response = await ref
+                    .read(authRepositoryProvider)
+                    .phoneLogin(LoginPhoneModel(
+                        verificationCode: contatcController.text));
+                if (response.statusCode == 200) {
+                  SharedPrefService.saveString(
+                      SharedPrefKey.accessToken, response.token);
+                  AppRouter.navigateTo(context, '/resetPassword');
+                }
               },
               widget: const Text('Done'),
             )

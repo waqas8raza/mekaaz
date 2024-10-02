@@ -1,6 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mekaaz/app_router/app_router.dart';
+import 'package:mekaaz/core/repositories/auth/model/update_role_model.dart';
+import 'package:mekaaz/core/repositories/auth/provider/get_role_provider.dart';
+import 'package:mekaaz/core/repositories/auth/services/auth_repository.dart';
 import 'package:mekaaz/theme/app_colors/app_colors.dart';
 import 'package:mekaaz/widgets/custom_text.dart';
 import 'package:mekaaz/widgets/round_button.dart';
@@ -12,6 +17,7 @@ class ProfileTypeView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final userRole = ref.watch(getRoleProvider);
     final selectedValue = ref.watch(radioProvider);
     double screenHeight = MediaQuery.sizeOf(context).height;
     double screenWidth = MediaQuery.sizeOf(context).width;
@@ -20,7 +26,8 @@ class ProfileTypeView extends ConsumerWidget {
     const int doctorIndex = 1;
 
     return Scaffold(
-      body: SafeArea(
+        body: userRole.when(
+      data: (data) => SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
@@ -66,6 +73,10 @@ class ProfileTypeView extends ConsumerWidget {
                               groupValue: selectedValue,
                               onChanged: (value) {
                                 ref.read(radioProvider.notifier).state = value;
+
+                                ref.read(authRepositoryProvider).updateRole(
+                                    UpdateRoleModel(role: 'patient'));
+                                ref.refresh(getRoleProvider);
                               },
                             ),
                           ),
@@ -106,6 +117,9 @@ class ProfileTypeView extends ConsumerWidget {
                               groupValue: selectedValue,
                               onChanged: (value) {
                                 ref.read(radioProvider.notifier).state = value;
+                                ref.read(authRepositoryProvider).updateRole(
+                                    UpdateRoleModel(role: 'caretaker'));
+                                ref.refresh(getRoleProvider);
                               },
                             ),
                           ),
@@ -129,7 +143,8 @@ class ProfileTypeView extends ConsumerWidget {
               const Spacer(),
               RoundButton(
                 onPressed: () {
-                  if (selectedValue != null) {
+                  log("${data.role}");
+                  if (data.role != null) {
                     AppRouter.replaceWith(context, '/addDiseaseView');
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -149,6 +164,12 @@ class ProfileTypeView extends ConsumerWidget {
           ),
         ),
       ),
-    );
+      error: (error, stackTrace) => const Center(
+        child: Text("Something went wrong"),
+      ),
+      loading: () => const Center(
+        child: CircularProgressIndicator(),
+      ),
+    ));
   }
 }

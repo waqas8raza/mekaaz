@@ -279,7 +279,6 @@ class AddMedicineScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedBodyPart = ref.watch(bodyPartProvider);
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Add Medicine'),

@@ -36,7 +36,7 @@ class VerificationDone extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: RoundButton(
               onPressed: () {
-                AppRouter.navigateTo(context, '/userProfileView');
+                AppRouter.navigateTo(context, '/profileTypeView');
               },
               title: 'Close',
               containerColor: AppColors.primaryColor,

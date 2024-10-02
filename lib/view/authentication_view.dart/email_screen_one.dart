@@ -138,7 +138,7 @@ class _EmailScreenOneState extends ConsumerState<EmailScreenOne> {
                       password: passwordController.text));
 
               if (response.statusCode == 200) {
-                AppRouter.replaceWith(context, '/profileTypeView');
+                AppRouter.replaceWith(context, '/subscriptionView');
               }
             }
           },
