@@ -11,6 +11,8 @@ import 'package:mekaaz/core/repositories/auth/model/update_role_model.dart';
 import 'package:mekaaz/core/repositories/auth/model/update_role_response.dart';
 import 'package:mekaaz/core/utils/shared_pref_service.dart';
 
+import '../model/complete_profile_model.dart';
+import '../model/complete_profile_response.dart';
 import 'auth_repository.dart';
 
 class AuthApiRepository implements AuthRepository {
@@ -32,28 +34,4 @@ class AuthApiRepository implements AuthRepository {
       rethrow;
     }
   }
-
-  @override
-  Future<PhoneLoginResponse> phoneLogin(LoginPhoneModel request) async {
-    try {
-      final response = await AuthApi(client).phoneLogin(request);
-      return response;
-    } catch (e) {
-      log(e.toString());
-      rethrow;
-    }
-  }
-
-  @override
-  Future<GetRoleResponse> getRole()async {
-    final response=await AuthApi(client).getRole();
-
-    return response;
-  }
-
-  @override
-  Future<UpdateRoleResponse> updateRole(UpdateRoleModel request)async {
-   final response =await AuthApi(client).updateRole(request);
-   return response;
-   }
 }

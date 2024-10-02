@@ -42,6 +42,7 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.suffixButton,
     super.key,
+    String? hintText,
   });
 
   @override

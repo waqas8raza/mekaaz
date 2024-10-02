@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:form_field_validator/form_field_validator.dart';
 import 'package:mekaaz/app_router/app_router.dart';
 import 'package:mekaaz/core/repositories/auth/model/login_email_model.dart';
 import 'package:mekaaz/core/repositories/auth/services/auth_repository.dart';
@@ -131,11 +130,12 @@ class _EmailScreenOneState extends ConsumerState<EmailScreenOne> {
           color: AppColors.blackColor,
           onPressed: () async {
             if (formKey.currentState!.validate()) {
-              final response = await ref
-                  .read(authRepositoryProvider)
-                  .emailLogin(LoginEmailModel(
-                      email: emailController.text,
-                      password: passwordController.text));
+              final response =
+                  await ref.read(authRepositoryProvider).emailLogin(
+                        LoginEmailModel(
+                            email: emailController.text,
+                            password: passwordController.text),
+                      );
 
               if (response.statusCode == 200) {
                 AppRouter.replaceWith(context, '/subscriptionView');

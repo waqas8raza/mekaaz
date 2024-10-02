@@ -1,3 +1,6 @@
+import 'dart:io'; 
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mekaaz/app_router/app_router.dart';
 import 'package:mekaaz/widgets/custom_button.dart';
@@ -52,29 +55,33 @@ class SplashTwoScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20), // Uniform spacing
-          CustomButton(
-            width: 320,
-            widget: Row(
-              children: [
-                Image.asset(
-                  "assets/images/facebook_icon.png",
-                  width: 24, // Set a fixed width for consistency
-                  height: 24, // Set a fixed height for consistency
-                ),
-                const SizedBox(width: 20),
-                CustomText(
-                  text: 'Login via Facebook',
-                  color: AppColors.blackColor,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ],
+
+          // Check if the platform is iOS before displaying the button
+          if (!kIsWeb && Platform.isIOS) ...[
+            CustomButton(
+              width: 320,
+              widget: Row(
+                children: [
+                  Image.asset(
+                    "assets/images/apple.png",
+                    width: 24, // Set a fixed width for consistency
+                    height: 24, // Set a fixed height for consistency
+                  ),
+                  const SizedBox(width: 20),
+                  CustomText(
+                    text: 'Login via Apple',
+                    color: AppColors.blackColor,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ],
+              ),
+              onPressed: () {
+                // AppRouter.navigateTo(context, '/');
+              },
             ),
-            onPressed: () {
-              // AppRouter.navigateTo(context, '/');
-            },
-          ),
-          const SizedBox(height: 20),
+            const SizedBox(height: 20), 
+          ],
           CustomButton(
             width: 320,
             widget: Row(

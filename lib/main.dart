@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mekaaz/core/utils/shared_pref_service.dart';
 
-import 'app_router/app_router.dart';
 
+import 'app_router/app_router.dart';
 import 'theme/app_colors/app_colors.dart';
 
 void main() async {
@@ -15,6 +15,7 @@ void main() async {
       child: MyApp(),
     ),
   );
+  SharedPrefService.clearAll();
 }
 
 class MyApp extends StatelessWidget {
